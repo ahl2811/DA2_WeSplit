@@ -1,0 +1,684 @@
+﻿<UserControl x:Class="DA2_WeSplit.Screens.TripScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DA2_WeSplit.Screens"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+
+    <Grid Margin="0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Height="50"  VerticalAlignment="top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid
+                Grid.Column="1">
+                <Border
+                    Background="WhiteSmoke"
+                    CornerRadius="10"
+                    BorderBrush="Silver"
+                    BorderThickness="1">
+                    <Grid DockPanel.Dock="Top" 
+                          Height="45">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="168*"/>
+                            <ColumnDefinition Width="19*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock 
+                            Padding="40, 0, 0, 0" 
+                            Text="Tìm kiếm..." 
+                            Name="keywordPlaceholderTextBlock"
+                            FontStyle="Italic" 
+                            VerticalAlignment="Center" 
+                            Margin="5,15" 
+                            Grid.ColumnSpan="2"
+                            Foreground="Gray"/>
+                        
+                        <TextBox Name="keywordTextBox" 
+                                 GotFocus="TextBox_GotFocus" 
+                                 LostFocus="TextBox_LostFocus" 
+                                 Background="Transparent" 
+                                 Padding="40, 0, 0, 0" 
+                                 VerticalContentAlignment="Center"
+                                 BorderThickness="0" 
+                                 Grid.ColumnSpan="2"
+                                 Height="45"
+                                 Foreground="Gray"/>
+                        <Image 
+                             Margin="17,0" 
+                             HorizontalAlignment="Left"  
+                             Source="/Assets/Icon/search.png" 
+                             Width="16" Height="16"
+                             RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Grid>
+                </Border>
+
+            </Grid>
+
+            <Grid
+                 Grid.Column="2">
+                <Button
+                     Margin="25,0"
+                     BorderThickness="0"
+                     Background="Teal"
+                     Foreground="White"
+                     Height="45"
+                     Width="120"
+                     HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Path
+                                 Data="{StaticResource plus}"
+                                 Style="{StaticResource {x:Type Path}}"
+                                 HorizontalAlignment="Center"
+                                 Fill="White"
+                                 Margin="10,0,0,0"/>
+                            <Grid
+                                 Grid.Column="1">
+                                <TextBlock Text="Thêm mới"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,10,0"/>
+                            </Grid>
+
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+
+            <Grid
+                 Grid.Column="0">
+                <Border
+                     Width="150"  
+                     Height="40"   
+                     BorderThickness="1"   
+                     BorderBrush="Teal"   
+                     CornerRadius="10"
+                     Opacity="1">
+
+
+                    <ComboBox Width="140"
+                              Height="30"
+                              Foreground="Teal"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              HorizontalContentAlignment="Center"
+                              VerticalAlignment="Center"
+                                          >
+                        <ComboBoxItem IsSelected="True">Theo chuyến đi</ComboBoxItem>
+                        <ComboBoxItem>Theo thành viên</ComboBoxItem>
+                    </ComboBox>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <!--CODE GIAO DIEN danh sach chuyen di  O DAY NE NHA BAY-->
+            <WrapPanel Margin="15,0,15,0"
+                       ScrollViewer.VerticalScrollBarVisibility="Visible"
+                       >
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                
+
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid 
+                     Width="170"
+                     Height="150"
+                     Margin="10, 10, 0, 0">
+                    <!--Anh-->
+                    <Border
+                         BorderBrush="Teal"
+                         BorderThickness="1"
+                         CornerRadius="10"
+                         Width="170"
+                         Height="130"                                   
+                         VerticalAlignment="Top"
+                                    >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                        </Border.Background>
+                        <Grid Height="50">
+
+                        </Grid>
+                    </Border>
+                    <!--title-->
+
+                    <Border 
+                         Height="55"
+                         Width="150"
+                         VerticalAlignment="Bottom"
+                         Background="GhostWhite"
+                         CornerRadius="10,0,10,0"
+                         BorderThickness="1"
+                         BorderBrush="Teal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Tên chuyến đi"
+                                 Foreground="#444444"
+                                 HorizontalAlignment="Center"
+                                 FontSize="16"
+                                 FontWeight="SemiBold"
+                                 Margin="0,3,0,0"
+                                 Height="25"/>
+                            <Grid
+                                Grid.Row="1">
+                                <Button
+                                     Margin="10,0"
+                                     FontSize="12"
+                                     Content="Xem thêm"
+                                     BorderThickness="0"
+                                     Background="Teal"
+                                     Foreground="White"
+                                     Height="20"
+                                     Width="75"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center">
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</UserControl>
