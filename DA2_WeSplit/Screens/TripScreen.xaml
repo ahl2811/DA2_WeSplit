@@ -78,6 +78,7 @@
             <Grid
                  Grid.Column="2">
                 <Button
+                    Click="Button_Click"
                      Margin="25,0"
                      BorderThickness="0"
                      Background="Teal"

@@ -37,5 +37,11 @@ namespace DA2_WeSplit.Screens
                 keywordPlaceholderTextBlock.Visibility = Visibility.Visible;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewTrip newTrip = new NewTrip();
+            newTrip.Show();
+        }
     }
 }

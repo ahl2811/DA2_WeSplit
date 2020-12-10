@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,8 +84,14 @@
     <Compile Include="Screens\AddNewTripScreen.xaml.cs">
       <DependentUpon>AddNewTripScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\NewTrip.xaml.cs">
+      <DependentUpon>NewTrip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SettingScreen.xaml.cs">
       <DependentUpon>SettingScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\SupportScreen.xaml.cs">
       <DependentUpon>SupportScreen.xaml</DependentUpon>
@@ -119,7 +126,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Screens\NewTrip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Screens\SettingScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +190,8 @@
     <Resource Include="Assets\Icon\maximize.png" />
     <Resource Include="Assets\Icon\minimize.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Images\dinhdoclap.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
