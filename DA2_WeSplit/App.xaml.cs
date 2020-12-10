@@ -13,5 +13,6 @@ namespace DA2_WeSplit
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

@@ -58,6 +58,28 @@
     <Compile Include="Card.xaml.cs">
       <DependentUpon>Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Database\CacMocLoTrinhDAOlmpl.cs" />
+    <Compile Include="Database\CacMocLoTrinhDAO.cs" />
+    <Compile Include="Database\ChuyenDiDAOlmpl.cs" />
+    <Compile Include="Database\ChuyenDiDAO.cs" />
+    <Compile Include="Database\HinhAnhChuyenDiDAOlmpl.cs" />
+    <Compile Include="Database\HinhAnhChuyenDiDAO.cs" />
+    <Compile Include="Database\MucChiDAOlmpl.cs" />
+    <Compile Include="Database\MucChiDAO.cs" />
+    <Compile Include="Database\MucTraLaiDAOlmpl.cs" />
+    <Compile Include="Database\MucTraLaiDAO.cs" />
+    <Compile Include="Database\MucUngTruocDAOlmpl.cs" />
+    <Compile Include="Database\MucUngTruocDAO.cs" />
+    <Compile Include="Database\MucUngTruoc.cs" />
+    <Compile Include="Database\MucChi.cs" />
+    <Compile Include="Database\MucTraLai.cs" />
+    <Compile Include="Database\ChuyenDi.cs" />
+    <Compile Include="Database\CacMocLoTrinh.cs" />
+    <Compile Include="Database\HinhAnhChuyenDi.cs" />
+    <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Database\ThanhVienDAOlmpl.cs" />
+    <Compile Include="Database\ThanhVienDAO.cs" />
+    <Compile Include="Database\ThanhVien.cs" />
     <Compile Include="Screens\AddNewTripScreen.xaml.cs">
       <DependentUpon>AddNewTripScreen.xaml</DependentUpon>
     </Compile>
@@ -153,5 +175,6 @@
     <Resource Include="Assets\Icon\maximize.png" />
     <Resource Include="Assets\Icon\minimize.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
