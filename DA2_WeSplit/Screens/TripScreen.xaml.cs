@@ -20,6 +20,9 @@ namespace DA2_WeSplit.Screens
     /// </summary>
     public partial class TripScreen : UserControl
     {
+        public delegate void DelegateType();
+        public event DelegateType LearnMoreHandler;
+        public event DelegateType AddNewTripHandler;
         public TripScreen()
         {
             InitializeComponent();
@@ -40,8 +43,20 @@ namespace DA2_WeSplit.Screens
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NewTrip newTrip = new NewTrip();
-            newTrip.Show();
+            //NewTrip newTrip = new NewTrip();
+            //newTrip.Show();
+            if (AddNewTripHandler != null)
+            {
+                AddNewTripHandler();
+            }
+        }
+
+        private void LearnMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(LearnMoreHandler != null)
+            {
+                LearnMoreHandler();
+            }
         }
     }
 }

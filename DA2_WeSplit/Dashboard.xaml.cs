@@ -24,9 +24,18 @@ namespace DA2_WeSplit
         public Dashboard()
         {
             InitializeComponent();
-            MainScreen.Children.Add(new TripScreen());
+            TripScreen allTripScreen = new TripScreen();
+            MainScreen.Children.Add(allTripScreen);
+            allTripScreen.LearnMoreHandler += LearnMoreButtonClick;
+            allTripScreen.AddNewTripHandler += AddNewTripClick;
         }
 
+        private void AddNewTripClick()
+        {
+            var newTrip = new NewTripScreen();
+            MainScreen.Children.Clear();
+            MainScreen.Children.Add(newTrip);
+        }
 
         private void RowDefinition_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -61,20 +70,34 @@ namespace DA2_WeSplit
         {
      
             MainScreen.Children.Clear();
-            MainScreen.Children.Add(new TripScreen());
+            TripScreen allTripScreen = new TripScreen();
+            MainScreen.Children.Add(allTripScreen);
+            allTripScreen.LearnMoreHandler += LearnMoreButtonClick;
+            allTripScreen.AddNewTripHandler += AddNewTripClick;
         }
 
+        private void LearnMoreButtonClick()
+        {
+            MainScreen.Children.Clear();
+            MainScreen.Children.Add(new TripDetailScreen());
+        }
 
         private void CurrentTripButton_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Children.Clear();
-            MainScreen.Children.Add(new TripScreen());
+            TripScreen currentTripScreen = new TripScreen();
+            MainScreen.Children.Add(currentTripScreen);
+            currentTripScreen.LearnMoreHandler += LearnMoreButtonClick;
+            currentTripScreen.AddNewTripHandler += AddNewTripClick;
         }
 
         private void PassedTripButton_Click(object sender, RoutedEventArgs e)
         {
             MainScreen.Children.Clear();
-            MainScreen.Children.Add(new TripScreen());
+            TripScreen passedTripScreen = new TripScreen();
+            MainScreen.Children.Add(passedTripScreen);
+            passedTripScreen.LearnMoreHandler += LearnMoreButtonClick;
+            passedTripScreen.AddNewTripHandler += AddNewTripClick;
         }
 
         private void SettingButton_Click(object sender, RoutedEventArgs e)

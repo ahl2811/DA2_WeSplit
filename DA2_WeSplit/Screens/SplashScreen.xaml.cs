@@ -32,6 +32,7 @@ namespace DA2_WeSplit.Screens
 
             if (showSplash == false)
             {
+                this.Hide();
                 var screen = new Dashboard();
                 screen.Show();
                 this.Close();

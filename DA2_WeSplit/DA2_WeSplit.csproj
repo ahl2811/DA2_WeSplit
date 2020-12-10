@@ -81,11 +81,8 @@
     <Compile Include="Database\ThanhVienDAOlmpl.cs" />
     <Compile Include="Database\ThanhVienDAO.cs" />
     <Compile Include="Database\ThanhVien.cs" />
-    <Compile Include="Screens\AddNewTripScreen.xaml.cs">
-      <DependentUpon>AddNewTripScreen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\NewTrip.xaml.cs">
-      <DependentUpon>NewTrip.xaml</DependentUpon>
+    <Compile Include="Screens\NewTripScreen.xaml.cs">
+      <DependentUpon>NewTripScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\SettingScreen.xaml.cs">
       <DependentUpon>SettingScreen.xaml</DependentUpon>
@@ -122,11 +119,7 @@
       <DependentUpon>Dashboard.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Screens\AddNewTripScreen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Screens\NewTrip.xaml">
+    <Page Include="Screens\NewTripScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
