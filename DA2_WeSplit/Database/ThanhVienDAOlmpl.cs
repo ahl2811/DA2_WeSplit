@@ -35,8 +35,7 @@ namespace DA2_WeSplit.Database
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
                     thanhVien.MaThanhVien = reader[0].ToString();
                     thanhVien.TenThanhVien = reader[1].ToString();
-                    thanhVien.MaChuyenDi = reader[2].ToString();
-                    thanhVien.TienThu = Int32.Parse(reader[3].ToString());
+                    thanhVien.TienThu = Int32.Parse(reader[2].ToString());
 
                     thanhVienList.Add(thanhVien);
                 }
@@ -56,13 +55,12 @@ namespace DA2_WeSplit.Database
             using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
             {
                 String query = "INSERT INTO dbo.THANHVIEN (MATHANHVIEN,TENTHANHVIEN,MACHUYENDI,TIENTHU)" +
-                " VALUES (@MaThanhVien,@TenThanhVien,@MaChuyenDi,@TienThu)";
+                " VALUES (@MaThanhVien,@TenThanhVien,@TienThu)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@MaThanhVien", thanhVien.MaThanhVien);
                     command.Parameters.AddWithValue("@TenThanhVien", thanhVien.TenThanhVien);
-                    command.Parameters.AddWithValue("@MaChuyenDi", thanhVien.MaChuyenDi);
                     command.Parameters.AddWithValue("@TienThu", thanhVien.TienThu);
 
                     connection.Open();

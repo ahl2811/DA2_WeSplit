@@ -37,8 +37,7 @@ namespace DA2_WeSplit.Database
                     chuyenDi.TenChuyenDi= reader[1].ToString();
                     chuyenDi.TrangThai = reader[2].ToString();
                     chuyenDi.DiaDiem = reader[3].ToString();
-                    chuyenDi.KhoangChi = Int32.Parse(reader[4].ToString());
-                    chuyenDi.MoTa = reader[5].ToString();
+                    chuyenDi.MoTa = reader[4].ToString();
 
                     chuyenDiList.Add(chuyenDi);
                 }
@@ -58,7 +57,7 @@ namespace DA2_WeSplit.Database
             using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
             {
                 String query = "INSERT INTO dbo.CHUYENDI (MACHUYENDI,TENCHUYENDI,TRANGTHAI,DIADIEM,KHOANGCHI,MOTA)" +
-                " VALUES (@MaChuyenDi,@TenChuyenDi,@TrangThai,@DiaDiem,@KhoangChi,@MoTa)";
+                " VALUES (@MaChuyenDi,@TenChuyenDi,@TrangThai,@DiaDiem,@MoTa)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -66,7 +65,6 @@ namespace DA2_WeSplit.Database
                     command.Parameters.AddWithValue("@TenChuyenDi", chuyenDi.TenChuyenDi);
                     command.Parameters.AddWithValue("@TrangThai", chuyenDi.TrangThai);
                     command.Parameters.AddWithValue("@DiaDiem", chuyenDi.DiaDiem);
-                    command.Parameters.AddWithValue("@KhoangChi", chuyenDi.KhoangChi);
                     command.Parameters.AddWithValue("@MoTa", chuyenDi.MoTa);
 
                     connection.Open();

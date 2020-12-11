@@ -63,6 +63,7 @@
     <Compile Include="Database\CacMocLoTrinhDAO.cs" />
     <Compile Include="Database\ChuyenDiDAOlmpl.cs" />
     <Compile Include="Database\ChuyenDiDAO.cs" />
+    <Compile Include="Database\CHUYENDI_THANHVIEN.cs" />
     <Compile Include="Database\HinhAnhChuyenDiDAOlmpl.cs" />
     <Compile Include="Database\HinhAnhChuyenDiDAO.cs" />
     <Compile Include="Database\MucChiDAOlmpl.cs" />

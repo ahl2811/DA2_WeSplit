@@ -27,39 +27,6 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CoreCompileInputs.cache
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe.config
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.pdb
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csprojAssemblyReference.cache
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Assets\icons.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Card.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Dashboard.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\AddNewTripScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTrip.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SettingScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SupportScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\App.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit_MarkupCompile.cache
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit_MarkupCompile.lref
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\App.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Card.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Dashboard.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\AddNewTripScreen.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SettingScreen.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SupportScreen.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripScreen.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTrip.baml
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.g.resources
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.Properties.Resources.resources
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.GenerateResource.cache
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CoreCompileInputs.cache
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SplashScreen.g.cs
-C:\Users\soiXam\Documents\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SplashScreen.baml
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe.config
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.pdb

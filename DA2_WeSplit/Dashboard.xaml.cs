@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DA2_WeSplit.Database;
 using DA2_WeSplit.Screens;
 namespace DA2_WeSplit
 {
@@ -28,6 +30,145 @@ namespace DA2_WeSplit
             MainScreen.Children.Add(allTripScreen);
             allTripScreen.LearnMoreHandler += LearnMoreButtonClick;
             allTripScreen.AddNewTripHandler += AddNewTripClick;
+
+            createDatabaseIfNotExist();
+        }
+
+        private void createDatabaseIfNotExist()
+        {
+
+            DatabaseHelper.Database = "master";
+            String db = "QLChuyenDi";
+            String query = "";
+
+            String con = $"Server=localhost; Database= master; Trusted_Connection=True;";
+            bool isCreated = isDatabaseExists(con, db);
+
+            if (!isCreated)
+            {
+                query = "create database QLChuyenDi";
+                DatabaseHelper.executeQuery(query);
+
+                DatabaseHelper.Database = db;
+
+                query = "use QLChuyenDi";
+                DatabaseHelper.executeQuery(query);
+
+                createDefaultTable();
+                addForeignKey();
+            }
+
+            DatabaseHelper.Database = db;
+        }
+
+        private void addForeignKey()
+        {
+            String query = "";
+
+            query = "alter table CHUYENDI_THANHVIEN add constraint fk_MACHUYENDI10 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table CHUYENDI_THANHVIEN add constraint fk_MATHANHVIEN10 foreign key(MATHANHVIEN) references THANHVIEN(MATHANHVIEN)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table HINHANHCHUYENDI add constraint fk_MACHUYENDI2 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table CACMOCLOTRINH add constraint fk_MACHUYENDI3 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCCHI add constraint fk_MACHUYENDI4 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCUNGTRUOC add constraint fk_MACHUYENDI5 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCUNGTRUOC add constraint fk_MANGUOIUNG foreign key(MANGUOIUNG) references THANHVIEN(MATHANHVIEN)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCTRALAI add constraint fk_MACHUYENDI6 foreign key(MACHUYENDI) references CHUYENDI(MACHUYENDI)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCTRALAI add constraint fk_MANGUOITRA foreign key(MANGUOITRA) references THANHVIEN(MATHANHVIEN)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "alter table MUCTRALAI add constraint fk_STTUNGTRUOC foreign key(STTUNGTRUOC) references MUCTRALAI(STT)";
+            DatabaseHelper.executeQuery(query);
+        }
+
+        private void createDefaultTable()
+        {
+            String query = "";
+
+            query = "create table CHUYENDI(" +
+                                "MACHUYENDI varchar(6)," +
+                                "TENCHUYENDI nvarchar(30)," +
+                                "TRANGTHAI char(7)," +
+                                "DIADIEM nvarchar(50)," +
+                                "MOTA text," +
+                                "primary key(MACHUYENDI))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table THANHVIEN(" +
+                "MATHANHVIEN varchar(6)," +
+                "TENTHANHVIEN nvarchar(30)," +
+                "primary key(MATHANHVIEN))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table CHUYENDI_THANHVIEN(" +
+                "MACHUYENDI varchar(6)," +
+                "MATHANHVIEN varchar(6)," +
+                "primary key(MACHUYENDI, MATHANHVIEN))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table HINHANHCHUYENDI(" +
+                "MACHUYENDI varchar(6)," +
+                "HINHANH varchar(50)," +
+                "primary key(MACHUYENDI, HINHANH))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table CACMOCLOTRINH(" +
+                "MACHUYENDI varchar(6)," +
+                "MOCLOTRINH nvarchar(50)," +
+                "primary key(MACHUYENDI, MOCLOTRINH))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table MUCCHI(" +
+                "STT int," +
+                "MACHUYENDI varchar(6)," +
+                "NDCHI text," +
+                "SOTIEN int," +
+                "primary key(STT))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table MUCUNGTRUOC(" +
+                "STT int," +
+                "MACHUYENDI varchar(6)," +
+                "MANGUOIUNG varchar(6)," +
+                "SOTIEN int," +
+                "primary key(STT))";
+            DatabaseHelper.executeQuery(query);
+
+            query = "create table MUCTRALAI(" +
+                "STT int," +
+                "MACHUYENDI varchar(6)," +
+                "STTUNGTRUOC int," +
+                "MANGUOITRA varchar(6)," +
+                "SOTIEN int," +
+                "primary key(STT))";
+            DatabaseHelper.executeQuery(query);
+        }
+
+        public static bool isDatabaseExists(string connectionString, string databaseName)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
+                {
+                    connection.Open();
+                    return (command.ExecuteScalar() != DBNull.Value);
+                }
+            }
         }
 
         private void AddNewTripClick()

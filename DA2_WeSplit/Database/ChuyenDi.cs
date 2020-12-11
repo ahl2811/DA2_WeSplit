@@ -12,16 +12,14 @@ namespace DA2_WeSplit.Database
 		public String TenChuyenDi { get; set; }
 		public String TrangThai { get; set; }
 		public String DiaDiem { get; set; }
-		public int KhoangChi { get; set; }
 		public String MoTa { get; set; }
 
-		public ChuyenDi (string maChuyenDi, string tenChuyenDi, string trangThai, string diaDiem, int khoangChi, string moTa)
+		public ChuyenDi (string maChuyenDi, string tenChuyenDi, string trangThai, string diaDiem, string moTa)
         {
 			this.MaChuyenDi = maChuyenDi;
 			this.TenChuyenDi = tenChuyenDi;
 			this.TrangThai = trangThai;
 			this.DiaDiem = diaDiem;
-			this.KhoangChi = khoangChi;
 			this.MoTa = moTa;
         }
 
