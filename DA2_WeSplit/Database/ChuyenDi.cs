@@ -14,9 +14,26 @@ namespace DA2_WeSplit.Database
 		public String DiaDiem { get; set; }
 		public String MoTa { get; set; }
 
-		public ChuyenDi (string maChuyenDi, string tenChuyenDi, string trangThai, string diaDiem, string moTa)
+		public ChuyenDi (string tenChuyenDi, string trangThai, string diaDiem, string moTa)
         {
-			this.MaChuyenDi = maChuyenDi;
+			ChuyenDiDAOImpl chuyenDiDAOImpl = new ChuyenDiDAOImpl();
+			
+			Random random = new Random();
+
+            while(true)
+            {
+				int tmpCode = -1;
+				tmpCode = random.Next();
+				foreach(ChuyenDi chuyenDi in chuyenDiDAOImpl.GetAllChuyenDi())
+                {
+					if(chuyenDi.MaChuyenDi.Equals(tmpCode.ToString()))
+                    {
+						continue;
+                    }
+                }
+				this.MaChuyenDi = tmpCode.ToString();
+            }
+
 			this.TenChuyenDi = tenChuyenDi;
 			this.TrangThai = trangThai;
 			this.DiaDiem = diaDiem;

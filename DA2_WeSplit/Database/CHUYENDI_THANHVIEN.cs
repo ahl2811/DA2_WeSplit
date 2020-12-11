@@ -8,7 +8,8 @@ namespace DA2_WeSplit.Database
 {
     class CHUYENDI_THANHVIEN
     {
-        public String maChuyenDi { get; set; }
+        public String MaChuyenDi { get; set; }
         public String MaThanhVien { get; set; }
+        public int TienThu { get; set; }
     }
 }

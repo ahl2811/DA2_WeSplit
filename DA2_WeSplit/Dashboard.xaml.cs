@@ -118,6 +118,7 @@ namespace DA2_WeSplit
             query = "create table CHUYENDI_THANHVIEN(" +
                 "MACHUYENDI varchar(6)," +
                 "MATHANHVIEN varchar(6)," +
+                "TIENTHU int," +
                 "primary key(MACHUYENDI, MATHANHVIEN))";
             DatabaseHelper.executeQuery(query);
 

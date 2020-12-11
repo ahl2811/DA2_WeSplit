@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.Emit;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace DA2_WeSplit.Database
 {
-    class ThanhVienDAOlmpl : ThanhVienDAO
+    class ChuyenDiThanhVienDAOImpl
     {
-        private List<ThanhVien> thanhVienList;
+        private List<CHUYENDI_THANHVIEN> chuyenDiThanhVienList;
 
-        public ThanhVienDAOlmpl()
+        public ChuyenDiThanhVienDAOImpl()
         {
-            thanhVienList = new List<ThanhVien>();
+            chuyenDiThanhVienList = new List<CHUYENDI_THANHVIEN>();
 
             string strConn = $"Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection(strConn);
             SqlCommand sqlCommand = new SqlCommand();
-            String query = "select * from THANHVIEN";
+            String query = "select * from CHUYENDI_THANHVIEN";
 
             try
             {
@@ -30,13 +32,14 @@ namespace DA2_WeSplit.Database
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    ThanhVien thanhVien = new ThanhVien();
+                    CHUYENDI_THANHVIEN cHUYENDI_THANHVIEN = new CHUYENDI_THANHVIEN();
 
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
-                    thanhVien.MaThanhVien = reader[0].ToString();
-                    thanhVien.TenThanhVien = reader[1].ToString();
+                    cHUYENDI_THANHVIEN.MaChuyenDi = reader[0].ToString();
+                    cHUYENDI_THANHVIEN.MaThanhVien = reader[1].ToString();
+                    cHUYENDI_THANHVIEN.TienThu = (int)reader[2];
 
-                    thanhVienList.Add(thanhVien);
+                    chuyenDiThanhVienList.Add(cHUYENDI_THANHVIEN);
                 }
                 sqlConnection.Close();
 
@@ -48,18 +51,20 @@ namespace DA2_WeSplit.Database
             }
         }
 
-        public void addThanhVien(ThanhVien thanhVien)
+        public void addChuyenDiThanhVien(CHUYENDI_THANHVIEN cHUYENDI_THANHVIEN)
         {
 
             using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
             {
-                String query = "INSERT INTO dbo.THANHVIEN (MATHANHVIEN,TENTHANHVIEN)" +
-                " VALUES (@MaThanhVien,@TenThanhVien)";
+                String query = "INSERT INTO dbo.CHUYENDI_THANHVIEN (MACHUYENDI, MATHANHVIEN, TIENTHU)" +
+                " VALUES (@MaChuyenDi,@MaThanhVien,@TienThu)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MaThanhVien", thanhVien.MaThanhVien);
-                    command.Parameters.AddWithValue("@TenThanhVien", thanhVien.TenThanhVien);
+                    command.Parameters.AddWithValue("@MaChuyenDi", cHUYENDI_THANHVIEN.MaChuyenDi);
+                    command.Parameters.AddWithValue("@MaThanhVien", cHUYENDI_THANHVIEN.MaThanhVien);
+                    command.Parameters.AddWithValue("@TienThu", cHUYENDI_THANHVIEN.TienThu);
+
                     connection.Open();
                     int result = command.ExecuteNonQuery();
 
@@ -71,26 +76,9 @@ namespace DA2_WeSplit.Database
             }
         }
 
-        public void deleteThanhVien(ThanhVien thanhVien)
+        public List<CHUYENDI_THANHVIEN> GetCHUYENDI_THANHVIENList()
         {
-            String delQuery = $"DELETE FROM THANHVIEN WHERE MATHANHVIEN = '{thanhVien.MaThanhVien}';";
-            DatabaseHelper.executeQuery(delQuery);
+            return chuyenDiThanhVienList;
         }
-        public void deleteThanhVien(string tenThanhVien)
-        {
-            String delQuery = $"DELETE FROM THANHVIEN WHERE TENTHANHVIEN = '{tenThanhVien}';";
-            DatabaseHelper.executeQuery(delQuery);
-        }
-
-        public List<ThanhVien> GetAllThanhVien()
-        {
-            return thanhVienList;
-        }
-
-        public void updateThanhVien()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

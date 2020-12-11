@@ -32,11 +32,11 @@ namespace DA2_WeSplit.Screens
             String location = txtLocation.Text;
 
 
-            if (txtTripName.Text == "")
+            if (tripName == "")
             {
                 MessageBox.Show("Bạn chưa nhập tên chuyến đi");
             }
-            else if (txtLocation.Text == "")
+            else if (location == "")
             {
                 MessageBox.Show("Bạn chưa nhập địa điểm chuyến đi");
             }

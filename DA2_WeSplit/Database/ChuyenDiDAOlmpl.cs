@@ -56,7 +56,7 @@ namespace DA2_WeSplit.Database
 
             using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
             {
-                String query = "INSERT INTO dbo.CHUYENDI (MACHUYENDI,TENCHUYENDI,TRANGTHAI,DIADIEM,KHOANGCHI,MOTA)" +
+                String query = "INSERT INTO dbo.CHUYENDI (MACHUYENDI,TENCHUYENDI,TRANGTHAI,DIADIEM,MOTA)" +
                 " VALUES (@MaChuyenDi,@TenChuyenDi,@TrangThai,@DiaDiem,@MoTa)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
