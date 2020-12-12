@@ -83,6 +83,8 @@
     <Compile Include="Database\ThanhVienDAOlmpl.cs" />
     <Compile Include="Database\ThanhVienDAO.cs" />
     <Compile Include="Database\ThanhVien.cs" />
+    <Compile Include="Paging\PagingInfo.cs" />
+    <Compile Include="Paging\ViewModel.cs" />
     <Compile Include="Screens\NewTripScreen.xaml.cs">
       <DependentUpon>NewTripScreen.xaml</DependentUpon>
     </Compile>

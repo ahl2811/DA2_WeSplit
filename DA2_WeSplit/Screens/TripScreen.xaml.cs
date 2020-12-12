@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DA2_WeSplit.Database;
+using DA2_WeSplit.Paging;
 
 namespace DA2_WeSplit.Screens
 {
@@ -20,12 +22,42 @@ namespace DA2_WeSplit.Screens
     /// </summary>
     public partial class TripScreen : UserControl
     {
-        public delegate void DelegateType();
+        public delegate void DelegateType(int type);
         public event DelegateType LearnMoreHandler;
         public event DelegateType AddNewTripHandler;
-        public TripScreen()
+
+        TripViewModel tripVM;
+        public int Type;
+        public TripScreen(int type)
         {
             InitializeComponent();
+            List<ChuyenDi> cdList;
+            ChuyenDiDAOImpl cdDao = new ChuyenDiDAOImpl();
+            switch (type)
+            {
+                case 0:
+                    Type = 0;
+                    cdList = cdDao.GetAllChuyenDi();
+                    break;
+
+                case 1:
+                    Type = 1;
+                    cdList = cdDao.GetCurrentTrip();
+                    break;
+
+                case 2:
+                    Type = 2;
+                    cdList = cdDao.GetPassedTrip();
+                    break;
+
+                default:
+                    Type = 0;
+                    cdList = cdDao.GetAllChuyenDi();
+                    break;
+            }
+            this.tripVM = new TripViewModel(cdList);
+            this.DataContext = tripVM;
+            TripListView.ItemsSource = tripVM.TripList;
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -47,16 +79,18 @@ namespace DA2_WeSplit.Screens
             //newTrip.Show();
             if (AddNewTripHandler != null)
             {
-                AddNewTripHandler();
+                AddNewTripHandler(Type);
             }
         }
 
         private void LearnMoreButton_Click(object sender, RoutedEventArgs e)
         {
-            if(LearnMoreHandler != null)
+            if (LearnMoreHandler != null)
             {
-                LearnMoreHandler();
+                LearnMoreHandler(Type);
             }
         }
+
+
     }
 }

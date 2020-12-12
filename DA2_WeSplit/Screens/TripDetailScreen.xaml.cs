@@ -20,9 +20,21 @@ namespace DA2_WeSplit.Screens
     /// </summary>
     public partial class TripDetailScreen : UserControl
     {
-        public TripDetailScreen()
+        public delegate void DelegateType(int type);
+        public event DelegateType ExitHandler;
+        public int type;
+        public TripDetailScreen(int type)
         {
             InitializeComponent();
+            this.type = type;
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExitHandler != null)
+            {
+                ExitHandler(this.type);
+            }
         }
     }
 }

@@ -21,6 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Grid Height="50"  VerticalAlignment="top">
@@ -147,16 +148,22 @@
 
         <Grid Grid.Row="1">
             <!--CODE GIAO DIEN danh sach chuyen di  O DAY NE NHA BAY-->
-            <WrapPanel Margin="15,0,15,0"
-                       ScrollViewer.VerticalScrollBarVisibility="Visible"
-                       >
-
-                <Grid 
+            <ListView x:Name="TripListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent"
+                      BorderThickness="0" Margin="10,10,0,0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
                      Width="170"
                      Height="150"
-                     Margin="10, 10, 0, 0">
-                    <!--Anh-->
-                    <Border
+                            Margin="0,0,0,10"
+                    >
+                            <!--Anh-->
+                            <Border
                          BorderBrush="Teal"
                          BorderThickness="1"
                          CornerRadius="10"
@@ -164,16 +171,16 @@
                          Height="130"                                   
                          VerticalAlignment="Top"
                                     >
-                        <Border.Background>
-                            <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
-                        </Border.Background>
-                        <Grid Height="50">
+                                <Border.Background>
+                                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                                </Border.Background>
+                                <Grid Height="50">
 
-                        </Grid>
-                    </Border>
-                    <!--title-->
+                                </Grid>
+                            </Border>
+                            <!--title-->
 
-                    <Border 
+                            <Border 
                          Height="55"
                          Width="150"
                          VerticalAlignment="Bottom"
@@ -181,21 +188,21 @@
                          CornerRadius="10,0,10,0"
                          BorderThickness="1"
                          BorderBrush="Teal">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="25"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Tên chuyến đi"
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding TenChuyenDi}"
                                  Foreground="#444444"
                                  HorizontalAlignment="Center"
                                  FontSize="16"
                                  FontWeight="SemiBold"
                                  Margin="0,3,0,0"
                                  Height="25"/>
-                            <Grid
+                                    <Grid
                                 Grid.Row="1">
-                                <Button
+                                        <Button
                                      x:Name="LearnMoreButton"
                                      Margin="10,0"
                                      FontSize="12"
@@ -208,18 +215,33 @@
                                      HorizontalContentAlignment="Center"
                                      VerticalContentAlignment="Center"
                                      Click="LearnMoreButton_Click">
-                                    <Button.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="10"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                            </Grid>
+                                            <Button.Resources>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="CornerRadius" Value="10"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Border>
                         </Grid>
-                    </Border>
-                </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </Grid>
 
-            </WrapPanel>
+        <Grid Grid.Row="2" Background="Red" VerticalAlignment="Bottom">
+            <DockPanel DockPanel.Dock="Bottom">
+                <StackPanel  MaxHeight="30" Orientation="Horizontal"  HorizontalAlignment="Center">
+                    <Button x:Name="btnFirst"  Content="First" Margin="0,0,10,0"/>
+                    <Button x:Name="btnPre"   Content="" Margin="0,0,5,0"/>
+                    <Button x:Name="btnCurrent"  Content="" Margin="0,0,5,0" Height="40" Width="80"/>
+                    <Button x:Name="btnNext"  Content="" Margin="0,0,5,0"/>
+                    <Button x:Name="btnNextTwo"  Content="" Margin="0,0,10,0"/>
+                    <Button x:Name="btnLast"  Content="Last"/>
+                </StackPanel>
+            </DockPanel>
         </Grid>
     </Grid>
 </UserControl>

@@ -15,7 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DA2_WeSplit.Database;
+using DA2_WeSplit.Paging;
 using DA2_WeSplit.Screens;
+
 namespace DA2_WeSplit
 {
     /// <summary>
@@ -26,10 +28,7 @@ namespace DA2_WeSplit
         public Dashboard()
         {
             InitializeComponent();
-            TripScreen allTripScreen = new TripScreen();
-            MainScreen.Children.Add(allTripScreen);
-            allTripScreen.LearnMoreHandler += LearnMoreButtonClick;
-            allTripScreen.AddNewTripHandler += AddNewTripClick;
+            UpdateTripScreen(0);
 
             createDatabaseIfNotExist();
         }
@@ -40,7 +39,6 @@ namespace DA2_WeSplit
             DatabaseHelper.Database = "master";
             String db = "QLChuyenDi";
             String query = "";
-
             String con = $"Server=localhost; Database= master; Trusted_Connection=True;";
             bool isCreated = isDatabaseExists(con, db);
 
@@ -172,11 +170,12 @@ namespace DA2_WeSplit
             }
         }
 
-        private void AddNewTripClick()
+        private void AddNewTripClick(int type)
         {
-            var newTrip = new NewTripScreen();
+            var newTrip = new NewTripScreen(type);
             MainScreen.Children.Clear();
             MainScreen.Children.Add(newTrip);
+            newTrip.ExitHandler += exitDetailTripScreenButton_Click;
         }
 
         private void RowDefinition_MouseDown(object sender, MouseButtonEventArgs e)
@@ -210,40 +209,46 @@ namespace DA2_WeSplit
 
         private void AllTripButton_Click(object sender, RoutedEventArgs e)
         {
-     
-            MainScreen.Children.Clear();
-            TripScreen allTripScreen = new TripScreen();
-            MainScreen.Children.Add(allTripScreen);
-            allTripScreen.LearnMoreHandler += LearnMoreButtonClick;
-            allTripScreen.AddNewTripHandler += AddNewTripClick;
+            UpdateTripScreen(0);
         }
 
-        private void LearnMoreButtonClick()
+        private void LearnMoreButtonClick(int type)
         {
             MainScreen.Children.Clear();
-            MainScreen.Children.Add(new TripDetailScreen());
+            var tripDetailScreen = new TripDetailScreen(type);
+            MainScreen.Children.Add(tripDetailScreen);
+            tripDetailScreen.ExitHandler += exitDetailTripScreenButton_Click;
+        }
+
+        private void exitDetailTripScreenButton_Click(int type)
+        {
+            MainScreen.Children.Clear();
+            UpdateTripScreen(type);
+        }
+
+        private void UpdateTripScreen(int type)//0 la All, 1 la Current, 2 la Passed
+        {
+            MainScreen.Children.Clear();
+            TripScreen tripScreen = new TripScreen(type);
+            MainScreen.Children.Add(tripScreen);
+            tripScreen.LearnMoreHandler += LearnMoreButtonClick;
+            tripScreen.AddNewTripHandler += AddNewTripClick;
         }
 
         private void CurrentTripButton_Click(object sender, RoutedEventArgs e)
         {
-            MainScreen.Children.Clear();
-            TripScreen currentTripScreen = new TripScreen();
-            MainScreen.Children.Add(currentTripScreen);
-            currentTripScreen.LearnMoreHandler += LearnMoreButtonClick;
-            currentTripScreen.AddNewTripHandler += AddNewTripClick;
+
+            UpdateTripScreen(1);
         }
 
         private void PassedTripButton_Click(object sender, RoutedEventArgs e)
         {
-            MainScreen.Children.Clear();
-            TripScreen passedTripScreen = new TripScreen();
-            MainScreen.Children.Add(passedTripScreen);
-            passedTripScreen.LearnMoreHandler += LearnMoreButtonClick;
-            passedTripScreen.AddNewTripHandler += AddNewTripClick;
+            UpdateTripScreen(2);
         }
 
         private void SettingButton_Click(object sender, RoutedEventArgs e)
         {
+            UIElementCollection child = MainScreen.Children;
             MainScreen.Children.Clear();
             MainScreen.Children.Add(new SettingScreen());
         }

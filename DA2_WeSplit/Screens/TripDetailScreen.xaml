@@ -13,5 +13,13 @@
                    HorizontalAlignment="Center"
                    FontSize="50"
                        ></TextBlock>
+
+        <Button HorizontalAlignment="Right"
+                Name="exitButton"
+                Content="Thoat"
+                Click="exitButton_Click"
+                >
+
+        </Button>
     </Grid>
 </UserControl>

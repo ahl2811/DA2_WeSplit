@@ -20,9 +20,13 @@ namespace DA2_WeSplit.Screens
     /// </summary>
     public partial class NewTripScreen : UserControl
     {
-        public NewTripScreen()
+        public delegate void DelegateType(int type);
+        public event DelegateType ExitHandler;
+        public int type;
+        public NewTripScreen(int type)
         {
             InitializeComponent();
+            this.type = type;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +46,15 @@ namespace DA2_WeSplit.Screens
             }
 
             //chua xong
+        }
+
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExitHandler != null)
+            {
+                ExitHandler(this.type);
+            }
         }
     }
 }

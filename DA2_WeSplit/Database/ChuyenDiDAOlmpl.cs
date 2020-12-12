@@ -10,10 +10,13 @@ namespace DA2_WeSplit.Database
     class ChuyenDiDAOImpl : ChuyenDiDAO
     {
         private List<ChuyenDi> chuyenDiList;
-
+        private List<ChuyenDi> currentTripList;
+        private List<ChuyenDi> passedTripList;
         public ChuyenDiDAOImpl()
         {
             chuyenDiList = new List<ChuyenDi>();
+            currentTripList = new List<ChuyenDi>();
+            passedTripList = new List<ChuyenDi>();
 
             string strConn = $"Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection(strConn);
@@ -31,7 +34,6 @@ namespace DA2_WeSplit.Database
                 while (reader.Read())
                 {
                     ChuyenDi chuyenDi = new ChuyenDi();
-
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
                     chuyenDi.MaChuyenDi = reader[0].ToString();
                     chuyenDi.TenChuyenDi= reader[1].ToString();
@@ -40,6 +42,16 @@ namespace DA2_WeSplit.Database
                     chuyenDi.MoTa = reader[4].ToString();
 
                     chuyenDiList.Add(chuyenDi);
+                    int rs;
+                    bool success = Int32.TryParse(chuyenDi.TrangThai.ToString(), out rs);
+                    if (success && rs == 1)
+                    {
+                        passedTripList.Add(chuyenDi);
+                    }
+                    else if(success && rs ==0)
+                    {
+                        currentTripList.Add(chuyenDi);
+                    }
                 }
                 sqlConnection.Close();
 
@@ -99,6 +111,15 @@ namespace DA2_WeSplit.Database
             return chuyenDiList;
         }
 
+        public List<ChuyenDi> GetCurrentTrip()
+        {
+            return currentTripList;
+        }
+
+        public List<ChuyenDi> GetPassedTrip()
+        {
+            return passedTripList;
+        }
         public void updateChuyenDi()
         {
             throw new NotImplementedException();
