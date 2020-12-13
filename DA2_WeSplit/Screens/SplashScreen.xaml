@@ -9,7 +9,7 @@
         Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Title="SplashScreen" Height="450" Width="800">
     <Grid Background="Teal">
-        <Image Source="/Assets/Images/dinhdoclap.jpg"/>
+        <Image x:Name="imgTrip" Source="../Assets/Images/default_splash_screen.jpg"/>
         <Border Background="Transparent" CornerRadius="10">
             <DockPanel>
                 <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" DockPanel.Dock="Top" Margin="30,10,0,0" Height="40">
@@ -17,8 +17,8 @@
                     <TextBlock Margin="8,0,0,0" Foreground="White" FontSize="24">Don't show again</TextBlock>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
-                    <TextBlock Margin="20,0,0,10" Foreground="White" FontSize="20">Dinh Độc Lập</TextBlock>
-                    <TextBlock Margin="20,0,20,0" TextWrapping="Wrap" FontSize="14" Foreground="White" HorizontalAlignment="Right" >Dinh Độc Lập hay Hội trường Thống nhất là một công trình kiến trúc, tòa nhà ở Thành phố Hồ Chí Minh. Đây từng là nơi ở và làm việc của Tổng thống Việt Nam Cộng hòa. Hiện nay, dinh đã được Chính phủ Việt Nam xếp hạng là di tích quốc gia đặc biệt.</TextBlock>
+                    <TextBlock x:Name="txtTripTittle" Margin="20,0,0,10" Foreground="White" FontSize="20">Dinh Độc Lập</TextBlock>
+                    <TextBlock HorizontalAlignment="Left" x:Name="txtTripDescription" Margin="20,0,20,0" TextWrapping="Wrap" FontSize="14" Foreground="White"  >Dinh Độc Lập hay Hội trường Thống nhất là một công trình kiến trúc, tòa nhà ở Thành phố Hồ Chí Minh. Đây từng là nơi ở và làm việc của Tổng thống Việt Nam Cộng hòa. Hiện nay, dinh đã được Chính phủ Việt Nam xếp hạng là di tích quốc gia đặc biệt.</TextBlock>
                     <ProgressBar x:Name="progress" Width="400"  
                          Minimum="0" Maximum="8" 
                          Value="0" Height="7"

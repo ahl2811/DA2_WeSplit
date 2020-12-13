@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,31 +29,47 @@ namespace DA2_WeSplit.Screens
 
         TripViewModel tripVM;
         public int Type;
+
+        ObservableCollection<ChuyenDi> cdList;
+        ChuyenDiDAOImpl cdDao = new ChuyenDiDAOImpl();
+
+
         public TripScreen(int type)
         {
             InitializeComponent();
-            List<ChuyenDi> cdList;
-            ChuyenDiDAOImpl cdDao = new ChuyenDiDAOImpl();
+            cdList = new ObservableCollection<ChuyenDi>();
             switch (type)
             {
                 case 0:
                     Type = 0;
-                    cdList = cdDao.GetAllChuyenDi();
+                    foreach(var trip in cdDao.GetAllChuyenDi())
+                    {
+                        cdList.Add(trip);
+                    } 
                     break;
 
                 case 1:
                     Type = 1;
-                    cdList = cdDao.GetCurrentTrip();
+                    foreach (var trip in cdDao.GetCurrentTrip())
+                    {
+                        cdList.Add(trip);
+                    }
                     break;
 
                 case 2:
                     Type = 2;
-                    cdList = cdDao.GetPassedTrip();
+                    foreach (var trip in cdDao.GetPassedTrip())
+                    {
+                        cdList.Add(trip);
+                    }
                     break;
 
                 default:
                     Type = 0;
-                    cdList = cdDao.GetAllChuyenDi();
+                    foreach (var trip in cdDao.GetAllChuyenDi())
+                    {
+                        cdList.Add(trip);
+                    }
                     break;
             }
             this.tripVM = new TripViewModel(cdList);
@@ -91,6 +108,33 @@ namespace DA2_WeSplit.Screens
             }
         }
 
-
+        private void keywordTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            cdList.Clear();
+            foreach (var trip in cdDao.GetAllChuyenDi())
+            {
+                cdList.Add(trip);
+            }
+            String filterQuery = keywordTextBox.Text;
+            if (filterQuery == "")
+            {
+                tripVM.TripList.Clear();
+                foreach (var trip in cdDao.GetAllChuyenDi())
+                {
+                    tripVM.TripList.Add(trip);
+                }
+            } else
+            {
+                for (int i = 0; i < cdList.Count(); i++)
+                {
+                    ChuyenDi trip = cdList[i];
+                    if (!trip.TenChuyenDi.ToLower().Contains(filterQuery.ToLower()))
+                    {
+                        i--;
+                        tripVM.TripList.Remove(trip);
+                    }
+                }
+            }
+        }
     }
 }

@@ -82,6 +82,22 @@ namespace DA2_WeSplit.Database
             return hinhAnhChuyenDiList;
         }
 
+        public HinhAnhChuyenDi getTripImageByTripCode(String tripCode)
+        {
+            HinhAnhChuyenDi hinhAnhChuyenDi = null;
+
+            foreach(HinhAnhChuyenDi tmp in hinhAnhChuyenDiList)
+            {
+                if(tmp.MaChuyenDi == tripCode)
+                {
+                    hinhAnhChuyenDi = tmp;
+                    break;
+                }
+            }
+
+            return hinhAnhChuyenDi;
+        }
+
         public void updateHinhAnhChuyenDi()
         {
             throw new NotImplementedException();

@@ -28,9 +28,9 @@ namespace DA2_WeSplit
         public Dashboard()
         {
             InitializeComponent();
+            createDatabaseIfNotExist();
             UpdateTripScreen(0);
 
-            createDatabaseIfNotExist();
         }
 
         private void createDatabaseIfNotExist()
@@ -40,7 +40,7 @@ namespace DA2_WeSplit
             String db = "QLChuyenDi";
             String query = "";
             String con = $"Server=localhost; Database= master; Trusted_Connection=True;";
-            bool isCreated = isDatabaseExists(con, db);
+            bool isCreated = DatabaseHelper.isDatabaseExists(con, db);
 
             if (!isCreated)
             {
@@ -103,7 +103,7 @@ namespace DA2_WeSplit
                                 "TENCHUYENDI nvarchar(30)," +
                                 "TRANGTHAI char(7)," +
                                 "DIADIEM nvarchar(50)," +
-                                "MOTA text," +
+                                "MOTA nvarchar(1000)," +
                                 "primary key(MACHUYENDI))";
             DatabaseHelper.executeQuery(query);
 
@@ -122,20 +122,20 @@ namespace DA2_WeSplit
 
             query = "create table HINHANHCHUYENDI(" +
                 "MACHUYENDI varchar(6)," +
-                "HINHANH varchar(50)," +
+                "HINHANH varchar(200)," +
                 "primary key(MACHUYENDI, HINHANH))";
             DatabaseHelper.executeQuery(query);
 
             query = "create table CACMOCLOTRINH(" +
                 "MACHUYENDI varchar(6)," +
-                "MOCLOTRINH nvarchar(50)," +
+                "MOCLOTRINH nvarchar(100)," +
                 "primary key(MACHUYENDI, MOCLOTRINH))";
             DatabaseHelper.executeQuery(query);
 
             query = "create table MUCCHI(" +
                 "STT int," +
                 "MACHUYENDI varchar(6)," +
-                "NDCHI text," +
+                "NDCHI nvarchar(100)," +
                 "SOTIEN int," +
                 "primary key(STT))";
             DatabaseHelper.executeQuery(query);
@@ -156,18 +156,6 @@ namespace DA2_WeSplit
                 "SOTIEN int," +
                 "primary key(STT))";
             DatabaseHelper.executeQuery(query);
-        }
-
-        public static bool isDatabaseExists(string connectionString, string databaseName)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
-                {
-                    connection.Open();
-                    return (command.ExecuteScalar() != DBNull.Value);
-                }
-            }
         }
 
         private void AddNewTripClick(int type)
