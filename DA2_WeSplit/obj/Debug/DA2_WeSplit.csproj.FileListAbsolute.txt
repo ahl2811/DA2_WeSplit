@@ -58,3 +58,10 @@ D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.g.cs
 D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CopyComplete
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.dll
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.dll
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.xml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.xml
