@@ -6,107 +6,43 @@
              xmlns:local="clr-namespace:DA2_WeSplit.Screens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="10,10,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-            <!--Exit button-->
-            <Button x:Name="ExitButton" Click="ExitButton_Click" Content="Hủy" FontSize="15" Margin="20,0,0,0">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Height" Value="30"/>
-                        <Setter Property="Background" Value="Gray"/>
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="Width" Value="40"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border
-                                            CornerRadius="8"
-                                            Background="{TemplateBinding Background}"
-                                            BorderThickness ="{TemplateBinding BorderThickness}">
-                                        <Grid>
-                                            <ContentPresenter
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    Content="{TemplateBinding Content}"
-                                                       >
-                                            </ContentPresenter>
-                                        </Grid>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#BBBBBB"></Setter>
-                                        </Trigger>
-                                        <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Background" Value="#AAAAAA"></Setter>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-            <!--Submit button-->
-            <Button Click="Button_Click" Content="Thêm" FontSize="16" Margin="20,0,20,0" VerticalAlignment="Top">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Height" Value="30"/>
-                        <Setter Property="Background" Value="Teal"/>
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="Width" Value="80"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border
-                                            CornerRadius="8"
-                                            Background="{TemplateBinding Background}"
-                                            BorderThickness ="{TemplateBinding BorderThickness}">
-                                        <Grid>
-                                            <ContentPresenter
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    Content="{TemplateBinding Content}"
-                                                       >
-                                            </ContentPresenter>
-                                        </Grid>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#79CDCD"></Setter>
-                                        </Trigger>
-                                        <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Background" Value="#528B8B"></Setter>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-            
-        </StackPanel>
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility ="Hidden">
+    <Grid Margin="10,0,0,0">
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
             <StackPanel x:Name="fill" Margin="20, 20, 0, 50">
-                <Label Content="Tên chuyến đi" Foreground="Teal" FontSize="40"></Label>
-                <TextBox HorizontalAlignment="Left" Margin="20,5,0,0"  MinWidth="200" MaxWidth="400" Name="txtTripName" Foreground="Teal" FontSize="18"></TextBox>
-                <Label Content="Trạng thái" Margin ="0,20,0,0"  Foreground="Teal" FontSize="24"/>
-                <ComboBox FontSize="16" Foreground="Teal" Margin="20,5,0,0" Width="150" HorizontalAlignment="Left">
-                    <ComboBoxItem IsSelected="True">Đang đi</ComboBoxItem>
-                    <ComboBoxItem >Đã đi xong</ComboBoxItem>
-                </ComboBox>
-                <Label Content="Địa điểm"  Margin ="0,20,0,0" Foreground="Teal" FontSize="24"></Label>
-                <TextBox Margin="20,5,0,0" HorizontalAlignment="Left" MinWidth="200" Name="txtLocation" Foreground="Teal" FontSize="18" MaxWidth="4000"></TextBox>
-                <Label Content="Khoảng chi" Margin ="0,20,0,0" Foreground="Teal" FontSize="24"></Label>
-                <ListBox Margin="20,0,0,0" Background="#E8E8E8" BorderThickness="0" BorderBrush="Transparent" Name="lbTodoList" HorizontalContentAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Tên chuyến đi:" Foreground="Teal" FontSize="40"></Label>
+                    <TextBox Height="30" HorizontalAlignment="Left" Margin="20,5,0,0"  MinWidth="200" MaxWidth="400" Name="txtTripName" Foreground="Teal" FontSize="18"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Top" Content="Trạng thái" Foreground="Teal" FontSize="24"/>
+                    <ComboBox VerticalAlignment="Center" Height="30" Name="cbTrangThai" FontSize="16" Foreground="Teal" Margin="20,5,0,0" Width="150" HorizontalAlignment="Left">
+                        <ComboBoxItem IsSelected="True">Đang đi</ComboBoxItem>
+                        <ComboBoxItem >Đã đi xong</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Địa điểm"  Foreground="Teal" FontSize="24"></Label>
+                    <TextBox Height="30" Margin="20,5,0,0" HorizontalAlignment="Left" MinWidth="200" Name="txtLocation" Foreground="Teal" FontSize="18" MaxWidth="4000"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center" Content="Khoảng chi" Foreground="Teal" FontSize="24"></Label>
+                    <Grid Width="300" HorizontalAlignment="Left" Margin="20,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                            <Label FontSize="10">Nội dung khoảng chi</Label>
+                            <TextBox Height="25" Name="txtCostDetail"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label FontSize="10">Tiền chi (VNĐ)</Label>
+                            <TextBox Height="25" PreviewTextInput="NumberValidationTextBox" x:Name="txtCost" Grid.Column="0"  Text="10000" Width="150" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Height="30" Click="OnAddNewCost" BorderBrush="Teal" Foreground="Teal" HorizontalAlignment="Left" Margin="20,0,0,0" Width="100">Thêm</Button>
+                </StackPanel>
+                <ListBox MinWidth="300" HorizontalAlignment="Left" MaxWidth="400" Margin="20,0,0,0" BorderThickness="0" BorderBrush="Transparent" Name="lbCostList" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,2">
@@ -114,27 +50,13 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding NoiDungChi}" />
-                                <TextBlock Text="{Binding KhoangChi}" />
+                                <TextBlock Grid.Column="0" Text="{Binding NDChi}" />
+                                <TextBlock Grid.Column="1" Text="{Binding SoTien}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Grid Width="300" HorizontalAlignment="Left" Margin="20,5,0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                        <Label FontSize="10">Nội dung khoảng chi</Label>
-                        <TextBox/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <Label FontSize="10">Tiền chi (VNĐ)</Label>
-                        <TextBox Grid.Column="0"  Text="10000" Width="150" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </Grid>
-                <Button BorderBrush="Teal" Foreground="Teal" HorizontalAlignment="Left" Margin="120,0,0,0" Width="100">Thêm</Button>
+
                 <Grid HorizontalAlignment="Left" Margin="0,20,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition ></ColumnDefinition>
@@ -142,62 +64,108 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Content="Thêm mốc lộ trình:" Foreground="Teal" FontSize="24" Grid.Column="0"></Label>
-                    <TextBox Grid.Column="1" MinWidth="100" MaxWidth="400" Margin="10,0,0,0"></TextBox>
-                    <Button BorderBrush="Teal" Grid.Column="2" Width="100" Foreground="Teal" Margin="10,0,0,0">Add</Button>
+                    <TextBox Height="30" x:Name="txtMilestone" Grid.Column="1" MinWidth="100" MaxWidth="400" Margin="10,0,0,0"></TextBox>
+                    <Button Click="OnAddNewMilestone" Height="30" BorderBrush="Teal" Grid.Column="2" Width="100" Foreground="Teal" Margin="10,0,0,0">Add</Button>
                 </Grid>
-                <ListBox Margin="20,10,0,0" Width="300" HorizontalAlignment="Left" Background="#E8E8E8">
-                    <ListBoxItem>ListBox Item #1</ListBoxItem>
-                    <ListBoxItem>ListBox Item #2</ListBoxItem>
-                    <ListBoxItem>ListBox Item #3</ListBoxItem>
-                </ListBox>
-                <Label Foreground="Teal" FontSize="24" Margin="0,20,0,0">Thêm thành viên</Label>
-                <ListBox Margin="20,0,0,0" Background="#E8E8E8" BorderThickness="0" BorderBrush="Transparent" Name="lbTodoListttt" HorizontalContentAlignment="Stretch">
+                <ListBox MinWidth="300" HorizontalAlignment="Left" MaxWidth="400" Margin="20,0,0,0" BorderThickness="0" BorderBrush="Transparent" Name="lbMilestones" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding }" />
-                                <TextBlock Text="{Binding }" />
+                                <TextBlock Grid.Column="0" Text="{Binding MocLoTrinh}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Grid Width="300" HorizontalAlignment="Left" Margin="20,5,0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                        <Label FontSize="10">Tên thành viên</Label>
-                        <TextBox/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <Label FontSize="10">Tiền thu (VNĐ)</Label>
-                        <TextBox Grid.Column="0"  Text="10000" Width="150" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </Grid>
-                <Button BorderBrush="Teal" Foreground="Teal" HorizontalAlignment="Left" Margin="120,0,0,0" Width="100">Thêm</Button>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="Teal" FontSize="24" Margin="0,20,0,0">Thêm thành viên</Label>
+                    <Grid MinWidth="200" MaxWidth="300" HorizontalAlignment="Left" Margin="20,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                            <Label FontSize="10">Tên thành viên</Label>
+                            <TextBox Height="25" x:Name="txtMemberName"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <Label FontSize="10">Phí thu (VNĐ)</Label>
+                            <TextBox PreviewTextInput="NumberValidationTextBox" Height="25" x:Name="txtMemberFee"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Height="30" Click="OnAddNewMember" BorderBrush="Teal" Foreground="Teal" HorizontalAlignment="Left" Margin="20,0,0,0" Width="100">Thêm</Button>
+                </StackPanel>                
+                <ListBox Margin="20,0,0,0" Background="#E8E8E8" BorderThickness="0" BorderBrush="Transparent" Name="lbMembers" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding TenThanhVien}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                
+                
                 <Grid HorizontalAlignment="Left" Margin="0,20,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition ></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Content="Thêm hình ảnh: " Foreground="Teal" FontSize="24" Grid.Column="0"/>
-                    <Button Width="100" Grid.Column="1" Margin="20,0,0,0" Foreground="Teal">Fetch</Button>
+                    <Button Click="OnAddNewImage" Width="100" Grid.Column="1" BorderBrush="Teal" Margin="20,0,0,0" Foreground="Teal">Fetch</Button>
                 </Grid>
-                <ListBox Margin="20,5,0,0" Width="300" HorizontalAlignment="Left" Background="#E8E8E8">
-                    <ListBoxItem>ListBox Item #1</ListBoxItem>
-                    <ListBoxItem>ListBox Item #2</ListBoxItem>
-                    <ListBoxItem>ListBox Item #3</ListBoxItem>
+                <ListBox HorizontalAlignment="Left" Margin="20,0,0,0" Background="#E8E8E8" BorderThickness="0" BorderBrush="Transparent" Name="lbImages" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image MaxHeight="75" MaxWidth="125" Source="{Binding HinhAnh}"></Image>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
                 <Label Foreground="Teal" FontSize="24" Margin="0,20,0,0">Thêm mô tả</Label>
-                <TextBox MinHeight="70" TextWrapping="Wrap"/>
+                <TextBox x:Name="txtDescription" MinHeight="70" TextWrapping="Wrap"/>
 
-
-                
+                <!--Submit button-->
+                <Button Click="OnSubmit" Content="Submit" Grid.Row="1" FontSize="28" Margin="0,15,0,0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Background" Value="Teal"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Width" Value="200"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border
+                                            CornerRadius="25"
+                                            Background="{TemplateBinding Background}"
+                                            BorderThickness ="{TemplateBinding BorderThickness}">
+                                            <Grid>
+                                                <ContentPresenter
+                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    Content="{TemplateBinding Content}"
+                                                       >
+                                                </ContentPresenter>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

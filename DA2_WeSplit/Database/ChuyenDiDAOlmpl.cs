@@ -59,7 +59,7 @@ namespace DA2_WeSplit.Database
             catch (Exception ex)
             {
                 sqlConnection.Close();
-                throw ex;
+                    throw ex;
             }
         }
 

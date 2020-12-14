@@ -195,7 +195,10 @@
     <Resource Include="Assets\Icon\minimize.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\dinhdoclap.jpg" />
+    <Resource Include="Assets\Images\default_splash_screen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\default_trip_image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
