@@ -76,7 +76,14 @@ namespace DA2_WeSplit.Screens
                 else
                 {
                     Uri uri = new Uri(tripImage.HinhAnh, UriKind.RelativeOrAbsolute);
-                    imgTrip.Source = new BitmapImage(uri);
+                    try
+                    {
+                        imgTrip.Source = new BitmapImage(uri);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                 }
             } else
             {

@@ -27,3 +27,40 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CoreCompileInputs.cache
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe.config
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.exe
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\DA2_WeSplit.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.dll
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.dll
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.xml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.pdb
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.xml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Assets\icons.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Card.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Dashboard.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SettingScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SplashScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SupportScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripScreen.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\App.g.cs
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit_MarkupCompile.cache
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit_MarkupCompile.lref
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\App.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Card.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Dashboard.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SettingScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SplashScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\SupportScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\Screens\TripScreen.baml
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.g.resources
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.Properties.Resources.resources
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.GenerateResource.cache
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CoreCompileInputs.cache
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CopyComplete
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
+D:\Nam3\00_Window\DA2\GitHub\DA2_WeSplit\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
