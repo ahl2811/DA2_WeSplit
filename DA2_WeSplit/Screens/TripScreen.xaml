@@ -133,7 +133,8 @@
                      Opacity="1">
 
 
-                    <ComboBox Width="140"
+                    <ComboBox Name="cbCatalog"
+                        Width="140"
                               Height="30"
                               Foreground="Teal"
                               Background="Transparent"

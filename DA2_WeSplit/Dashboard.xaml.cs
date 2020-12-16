@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +35,75 @@ namespace DA2_WeSplit
 
         }
 
+        private void insertDefaultDatabase()
+        {
+            String query = "insert into CHUYENDI values ('001', N'Biển Vũng Tàu', '0', N'Vũng Tàu',  N'Từ lâu Vũng tàu đã nổi tiếng với các bãi biển trải dài tuyệt đẹp của mình, tuy nhiên người ta thường chỉ nhớ tới Bãi trước và Bãi Sau mà quên rằng Vũng Tàu còn rất nhiều bãi biển đẹp khác.')," +
+                "('002', N'Rạn Nam Ô', '0', N'Đã Nẵng', N'Có về Đà Nẵng, có qua hết các danh thắng quen mặt thì hãy dành thời gian cho bãi Rạn Nam Ô. Đến Rạn Nam Ô rồi, du khách không khỏi phải hồ hởi bất ngờ bởi bức họa muôn màu đến kỳ ảo mà bãi biển này mang lại. Nhất định, sẽ yêu ngay từ cái nhìn đầu tiên.')," +
+                "('003', N'Mũi Né 4N3Đ', '0', N'Phan Thiết', N'Mũi Né là trung tâm du lịch của thành phố phan thiết, nổi tiếng với những đồi cát rộng mênh mang, bãi biển tuyệt đẹp và những hàng dừa cao vút bao quanh bao biển quanh năm tràn ngập ánh nắng.')," +
+                "('004', N'Rừng Dừa 7 Mẫu', '0', N'Hội An', N'Du lịch Hội An chưa bao giờ hết hot với nhiều địa điểm lưu giữ lịch sử, không thể không kể đến Rừng dừa Bảy Mẫu, một nơi mà bạn chắc chắn sẽ thích thú khi được khám phá cảnh quan tuyệt đẹp và còn được chèo thuyền thúng để thử cái cảm giác lâng lâng khi lênh đênh trên sông nước nữa đấy.')";
+            DatabaseHelper.executeQuery(query);
+
+
+            query = "insert into THANHVIEN values ('00101', N'Lê Anh Hào')," +
+                "('00102', N'Đào Văn Hiếu')," +
+                "('00103', N'Nguyễn Minh Hiếu')," +
+                "('00201', N'Lê Anh Hào')," +
+                "('00202', N'Lý Đông Triệu')," +
+                "('00203', N'Nguyễn Văn Hiển')," +
+                "('00204', N'Đỗ Minh Tiến')," +
+                "('00301', N'Nhậm Thanh Du')," +
+                "('00302', N'Bùi Giang Lương')," +
+                "('00401', N'Tống Mỹ Duyên')," +
+                "('00402', N'Tống Anh Hiếu')," +
+                "('00403', N'Lương Thị Bích Xuân')," +
+                "('00404', N'Tống Nghĩa Hợp')";
+            DatabaseHelper.executeQuery(query);
+
+
+            query = "insert into CHUYENDI_THANHVIEN values('001', '00101', '5000000')," +
+                "('001', '00102', '1000000')," +
+                "('001', '00103', '1000000')," +
+                "('002', '00201', '10000000')," +
+                "('002', '00202', '2000000')," +
+                "('002', '00203', '2000000')," +
+                "('002', '00204', '2000000')," +
+                "('003', '00301', '5000000')," +
+                "('003', '00302', '5000000')," +
+                "('004', '00401', '4000000')," +
+                "('004', '00402', '4000000')," +
+                "('004', '00403', '2000000')," +
+                "('004', '00404', '2000000')";
+            DatabaseHelper.executeQuery(query);
+
+            query = "insert into HINHANHCHUYENDI values	('001', '..\\Assets\\Images\\1.png')," +
+                "('001', '..\\Assets\\Images\\2.png')," +
+                "('001', '..\\Assets\\Images\\3.png')," +
+                "('002', '..\\Assets\\Images\\4.jpg')," +
+                "('002', '..\\Assets\\Images\\5.jpg')," +
+                "('002', '..\\Assets\\Images\\6.jpg')," +
+                "('003', '..\\Assets\\Images\\7.jpg')," +
+                "('003', '..\\Assets\\Images\\8.jpg')," +
+                "('003', '..\\Assets\\Images\\9.jpg')," +
+                "('004', '..\\Assets\\Images\\10.jpg')," +
+                "('004', '..\\Assets\\Images\\11.jpg')," +
+                "('004', '..\\Assets\\Images\\12.jpg')";
+            DatabaseHelper.executeQuery(query);
+
+            query = "insert into CACMOCLOTRINH values ('001', N'Bãi Trước')," +
+                "('001', N'Bãi Sau')," +
+                "('001', N'Mũi Nghinh Phong')," +
+                "('002', N'Ghềnh Bàng')," +
+                "('002', N'Bãi Tắm Nam Ô')," +
+                "('002', N'Rạn Nam Ô')," +
+                "('003', N'Đồi Cát Đỏ')," +
+                "('003', N'Làng Chài Phan Thiết')," +
+                "('003', N'Biển Mũi Né')," +
+                "('004', N'Chùa Cầu')," +
+                "('004', N'Bán Đảo Sơn Trà')," +
+                "('004', N'Rừng Dừa 7 Mẫu')";
+            DatabaseHelper.executeQuery(query);
+        }
+
         private void createDatabaseIfNotExist()
         {
 
@@ -54,10 +125,13 @@ namespace DA2_WeSplit
 
                 createDefaultTable();
                 addForeignKey();
+                insertDefaultDatabase();
             }
 
             DatabaseHelper.Database = db;
         }
+
+
 
         private void addForeignKey()
         {
@@ -101,7 +175,7 @@ namespace DA2_WeSplit
             query = "create table CHUYENDI(" +
                                 "MACHUYENDI varchar(6)," +
                                 "TENCHUYENDI nvarchar(30)," +
-                                "TRANGTHAI char(7)," +
+                                "TRANGTHAI int," +
                                 "DIADIEM nvarchar(50)," +
                                 "MOTA nvarchar(1000)," +
                                 "primary key(MACHUYENDI))";

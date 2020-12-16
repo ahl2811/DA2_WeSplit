@@ -11,11 +11,11 @@ namespace DA2_WeSplit.Database
     {
 		public String MaChuyenDi { get; set; }
 		public String TenChuyenDi { get; set; }
-		public String TrangThai { get; set; }
+		public int TrangThai { get; set; }
 		public String DiaDiem { get; set; }
 		public String MoTa { get; set; }
 
-		public ChuyenDi (string maChuyenDi, string tenChuyenDi, string trangThai, string diaDiem, string moTa)
+		public ChuyenDi (string maChuyenDi, string tenChuyenDi, int trangThai, string diaDiem, string moTa)
         {
 			Random random = new Random();
 

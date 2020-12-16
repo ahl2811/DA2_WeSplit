@@ -222,7 +222,7 @@ namespace DA2_WeSplit.Screens
         private void OnSubmit(object sender, RoutedEventArgs e)
         {
             String tripName = txtTripName.Text;
-            String state = cbTrangThai.Text;
+            String curStateString = cbTrangThai.Text;
             String location = txtLocation.Text;
             String description = txtDescription.Text;
 
@@ -235,8 +235,13 @@ namespace DA2_WeSplit.Screens
                 MessageBox.Show("Bạn chưa nhập địa điểm chuyến đi");
             }
 
+            int curState = 1;
+            if(curStateString.Equals("Đang đi"))
+            {
+                curState = 0;
+            }
 
-            ChuyenDi newTrip = new ChuyenDi(maChuyenDi, tripName, state, location, description);
+            ChuyenDi newTrip = new ChuyenDi(maChuyenDi, tripName, curState, location, description);
             chuyenDiDAOImpl.addChuyenDi(newTrip);
 
             if (extraExpense.Count() > 0)
