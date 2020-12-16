@@ -38,13 +38,25 @@ namespace DA2_WeSplit.Database
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
                     chuyenDi.MaChuyenDi = reader[0].ToString();
                     chuyenDi.TenChuyenDi= reader[1].ToString();
-                    chuyenDi.TrangThai = Int32.Parse(reader[2].ToString());
+                    //chuyenDi.TrangThai = Int32.Parse(reader[2].ToString());
                     chuyenDi.DiaDiem = reader[3].ToString();
                     chuyenDi.MoTa = reader[4].ToString();
+                    chuyenDi.AnhBia = $"{currentFolder}Assets\\Images\\{reader[5].ToString()}";
+                    
+                    int rs;
+                    bool success = Int32.TryParse(reader[2].ToString(), out rs);
+
+                    if (success)
+                    {
+                        chuyenDi.TrangThai = rs;
+                    }
+                    else
+                    {
+                        chuyenDi.TrangThai = 0;
+                    }
 
                     chuyenDiList.Add(chuyenDi);
-                    int rs;
-                    bool success = Int32.TryParse(chuyenDi.TrangThai.ToString(), out rs);
+
                     if (success && rs == 1)
                     {
                         passedTripList.Add(chuyenDi);
@@ -69,8 +81,8 @@ namespace DA2_WeSplit.Database
 
             using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
             {
-                String query = "INSERT INTO dbo.CHUYENDI (MACHUYENDI,TENCHUYENDI,TRANGTHAI,DIADIEM,MOTA)" +
-                " VALUES (@MaChuyenDi,@TenChuyenDi,@TrangThai,@DiaDiem,@MoTa)";
+                String query = "INSERT INTO dbo.CHUYENDI (MACHUYENDI,TENCHUYENDI,TRANGTHAI,DIADIEM,MOTA,ANHBIA)" +
+                " VALUES (@MaChuyenDi,@TenChuyenDi,@TrangThai,@DiaDiem,@MoTa, @AnhBia)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -79,6 +91,7 @@ namespace DA2_WeSplit.Database
                     command.Parameters.AddWithValue("@TrangThai", chuyenDi.TrangThai);
                     command.Parameters.AddWithValue("@DiaDiem", chuyenDi.DiaDiem);
                     command.Parameters.AddWithValue("@MoTa", chuyenDi.MoTa);
+                    command.Parameters.AddWithValue("@AnhBia", chuyenDi.AnhBia);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -133,7 +146,7 @@ namespace DA2_WeSplit.Database
             {
                 if(cd.MaChuyenDi == Id)
                 {
-                    result = new ChuyenDi(cd.MaChuyenDi, cd.TenChuyenDi, cd.TrangThai, cd.DiaDiem, cd.MoTa);
+                    result = new ChuyenDi(cd.MaChuyenDi, cd.TenChuyenDi, cd.TrangThai, cd.DiaDiem, cd.MoTa, cd.AnhBia);
                     break;
                 }
             }

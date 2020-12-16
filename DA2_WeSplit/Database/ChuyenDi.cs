@@ -14,8 +14,8 @@ namespace DA2_WeSplit.Database
 		public int TrangThai { get; set; }
 		public String DiaDiem { get; set; }
 		public String MoTa { get; set; }
-
-		public ChuyenDi (string maChuyenDi, string tenChuyenDi, int trangThai, string diaDiem, string moTa)
+		public String AnhBia { get; set; }
+		public ChuyenDi (string maChuyenDi, string tenChuyenDi, int trangThai, string diaDiem, string moTa, string anhBia)
         {
 			Random random = new Random();
 
@@ -24,6 +24,7 @@ namespace DA2_WeSplit.Database
 			this.TrangThai = trangThai;
 			this.DiaDiem = diaDiem;
 			this.MoTa = moTa;
+			this.AnhBia = anhBia;
         }
 
 		public ChuyenDi() {; }

@@ -134,7 +134,7 @@
                     <!--Anh-->
                     <Border  CornerRadius="10" BorderThickness="1" BorderBrush="WhiteSmoke" Width="auto" Height="auto" Margin="10,10">
                         <Border.Background>
-                            <ImageBrush x:Name="mainImage" ImageSource="/Assets/Images/Captain.jpg"/>
+                            <ImageBrush x:Name="mainImage" ImageSource="{Binding chuyenDi.AnhBia}"/>
                         </Border.Background>
                     </Border>
 
@@ -197,7 +197,7 @@
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="Địa điểm:" Foreground="Teal" TextDecorations="underline">
                                                     </TextBlock>
-                                                    <TextBlock Text="{Binding chuyenDi.DiaDiem}" Margin="5,0,0,0" FontSize="13.5" Foreground="#555555"
+                                                    <TextBlock Text="{Binding chuyenDi.DiaDiem}" Margin="5,0,0,0" FontSize="13.5" Foreground="Red"
                                                                VerticalAlignment="Bottom"></TextBlock>
                                                 </StackPanel>
                                                 

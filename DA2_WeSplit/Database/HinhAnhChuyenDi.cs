@@ -11,8 +11,10 @@ namespace DA2_WeSplit.Database
         public String MaChuyenDi { get; set; }
         public String HinhAnh { get; set; }
 
+        
         public HinhAnhChuyenDi(string maChuyenDi, string hinhAnh)
         {
+            var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
             this.MaChuyenDi = maChuyenDi;
             this.HinhAnh = hinhAnh;
         }

@@ -28,133 +28,17 @@ namespace DA2_WeSplit.Screens
     /// </summary>
     /// 
 
-
-    public class Population : INotifyPropertyChanged
-    {
-        private string _name = string.Empty;
-        private int _count = 0;
-
-        // Tên hiển thị mỗi thành phần Chart
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged("Name");
-            }
-        }
-
-        // Data cho Chart
-        public int Count
-        {
-            get { return _count; }
-            set
-            {
-                _count = value;
-                NotifyPropertyChanged("Count");
-            }
-
-        }
-
-        // Phần dưới là implement của INotifyPropertyChanged - tự động cập nhật data.
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-
-    public class MainViewModel
-    {
-        // Property sẽ được Binding từ GUI(View)
-        public ObservableCollection<Population> Populations { get; private set; }
-        // Add data(Model-Item) cho List
-
-        List<PieSeries> PieChartSeriesCollection { get; set; }
-        public MainViewModel()
-        {
-            Populations = new ObservableCollection<Population>();
-            Populations.Add(new Population() { Name = "China", Count = 1340 });
-            Populations.Add(new Population() { Name = "India", Count = 1220 });
-            Populations.Add(new Population() { Name = "United States", Count = 309 });
-            Populations.Add(new Population() { Name = "Indonesia", Count = 240 });
-            Populations.Add(new Population() { Name = "Brazil", Count = 195 });
-            Populations.Add(new Population() { Name = "Pakistan", Count = 174 });
-            Populations.Add(new Population() { Name = "Nigeria", Count = 158 });
-
-            //if (PieChartSeriesCollection != null) PieChartSeriesCollection.Clear(); foreach (KeyValuePair<string, int> pair in DictionaryOfData)
-            //{  Dictionary<string, int> PieChartSeriesCollection .Add( new PieSeries { Title = $"{pair.Value} ({pair.Key})", Values = new ChartValues<int> { pair.Value }, DataLabels = true }); }
-            //}
-
-            if (PieChartSeriesCollection != null)
-            {
-                PieChartSeriesCollection.Clear();
-            }
-            else
-            {
-                PieChartSeriesCollection = new List<PieSeries>();
-            }
-            foreach (Population p in Populations)
-            {
-                PieChartSeriesCollection.Add(new PieSeries(){ Title = $"{p.Name} ({p.Count})", Values = new ChartValues<int> { p.Count }, DataLabels = true });
-            }
-            foreach(PieSeries p in PieChartSeriesCollection)
-            {
-                
-            }
-        }
-
-        private object selectedItem = null;
-        public object SelectedItem
-        {
-            get
-            {
-                return selectedItem;
-            }
-            set
-            {
-                // selected item has changed
-                selectedItem = value;
-            }
-        }
-    }
-
     public sealed partial class TripDetailScreen : UserControl
     {
         public delegate void DelegateType(int type);
         public event DelegateType ExitHandler;
         public int type;
-        ObservableCollection<Population> Populations;
+        
         TripDetailVM tripDetailVM;
         public TripDetailScreen(int type, string maChuyenDi)
         {
-            Populations = new ObservableCollection<Population>();
-            Populations.Add(new Population() { Name = "China", Count = 1340 });
-            Populations.Add(new Population() { Name = "India", Count = 1220 });
-            Populations.Add(new Population() { Name = "United States", Count = 309 });
-            Populations.Add(new Population() { Name = "Indonesia", Count = 240 });
-            Populations.Add(new Population() { Name = "Brazil", Count = 195 });
-            Populations.Add(new Population() { Name = "Pakistan", Count = 174 });
-            Populations.Add(new Population() { Name = "Nigeria", Count = 158 });
-
-            //if (PieChartSeriesCollection != null) PieChartSeriesCollection.Clear(); foreach (KeyValuePair<string, int> pair in DictionaryOfData)
-            //{  Dictionary<string, int> PieChartSeriesCollection .Add( new PieSeries { Title = $"{pair.Value} ({pair.Key})", Values = new ChartValues<int> { pair.Value }, DataLabels = true }); }
-            //}
-            List<PieSeries> PieChartSeriesCollection;
-
             ObservableCollection<MucChi> mc = new ObservableCollection<MucChi>();
             MucChiDAOlmpl mcDao = new MucChiDAOlmpl();
-
-            //mainImage.ImageSource = new BitmapImage(new Uri(@"", UriKind.Relative));
-
-
-            PieChartSeriesCollection = new List<PieSeries>();
-
 
             InitializeComponent();
 
@@ -236,7 +120,27 @@ namespace DA2_WeSplit.Screens
         {
             int index = ImageListView.SelectedIndex;
             var imgName = tripDetailVM.hinhAnhList[index].HinhAnh;
-            mainImage.ImageSource = new BitmapImage(new Uri(@imgName, UriKind.Relative));
+
+            
+            try
+            {
+                var bitmap = new BitmapImage(new Uri(@imgName, UriKind.Relative));
+                mainImage.ImageSource = bitmap;
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+            //try
+            //{
+            //    mainImage.ImageSource = new BitmapImage(new Uri(@imgName, UriKind.Relative));
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Anh nay khong ton tai");
+            //};
+
         }
     }
 }

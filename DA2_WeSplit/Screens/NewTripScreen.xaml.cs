@@ -20,14 +20,31 @@ using System.Windows.Shapes;
 
 namespace DA2_WeSplit.Screens
 {
+    class ThanhVien_TienThu
+    {
+        public string TenThanhVien { get; set; }
+        public string SoTien { get; set; }
 
+        public ThanhVien_TienThu() { }
+
+        public ThanhVien_TienThu(string ten, string tien)
+        {
+            this.TenThanhVien = ten;
+            this.SoTien = tien;
+        }
+    }
     public partial class NewTripScreen : UserControl
     {
         String maChuyenDi;
+        string AvatarName = "";
+        string anhbiaChuyenDi = "";
+        string newNameAvt = "";
         ObservableCollection<MucChi> extraExpense;
         ObservableCollection<CacMocLoTrinh> milestones;
         ObservableCollection<ThanhVien> members;
         ObservableCollection<HinhAnhChuyenDi> images;
+        ObservableCollection<ThanhVien_TienThu> thanhVien_TienThu;
+        ObservableCollection<HinhAnhChuyenDi> imagesTemp;
         ObservableCollection<CHUYENDI_THANHVIEN> trip_memberList;
         
         public delegate void DelegateType(int type);
@@ -41,6 +58,7 @@ namespace DA2_WeSplit.Screens
         HinhAnhChuyenDiDAOlmpl hinhAnhChuyenDiDAOlmpl = new HinhAnhChuyenDiDAOlmpl();
         ChuyenDiThanhVienDAOImpl chuyenDiThanhVienDAOImpl = new ChuyenDiThanhVienDAOImpl();
 
+
         public NewTripScreen(int type)
         {
             InitializeComponent();
@@ -53,11 +71,14 @@ namespace DA2_WeSplit.Screens
             lbMilestones.ItemsSource = milestones;
 
             members = new ObservableCollection<ThanhVien>();
-            lbMembers.ItemsSource = members;
+            thanhVien_TienThu = new ObservableCollection<ThanhVien_TienThu>();
+            lbMembers.ItemsSource = thanhVien_TienThu;
 
             images = new ObservableCollection<HinhAnhChuyenDi>();
-            lbImages.ItemsSource = images;
+            
 
+            imagesTemp = new ObservableCollection<HinhAnhChuyenDi>();
+            lbImages.ItemsSource = imagesTemp;
             trip_memberList = new ObservableCollection<CHUYENDI_THANHVIEN>();
 
             maChuyenDi = (chuyenDiDAOImpl.GetAllChuyenDi().Count() + 1).ToString();
@@ -73,10 +94,14 @@ namespace DA2_WeSplit.Screens
             lbMilestones.ItemsSource = milestones;
 
             members = new ObservableCollection<ThanhVien>();
-            lbMembers.ItemsSource = members;
+            thanhVien_TienThu = new ObservableCollection<ThanhVien_TienThu>();
+            lbMembers.ItemsSource = thanhVien_TienThu;
 
             images = new ObservableCollection<HinhAnhChuyenDi>();
-            lbImages.ItemsSource = images;
+            
+
+            imagesTemp = new ObservableCollection<HinhAnhChuyenDi>();
+            lbImages.ItemsSource = imagesTemp;
 
             trip_memberList = new ObservableCollection<CHUYENDI_THANHVIEN>();
 
@@ -182,10 +207,14 @@ namespace DA2_WeSplit.Screens
                 MaThanhVien = thanhVien.MaThanhVien,
                 TienThu = Int32.Parse(memberFee)
             });
+
+            thanhVien_TienThu.Add(new ThanhVien_TienThu(thanhVien.TenThanhVien, memberFee));
+
             txtMemberName.Text = "";
             txtMemberFee.Text = "";
         }
 
+        List<string> fileList = new List<string>();
         private void OnAddNewImage(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
@@ -199,26 +228,28 @@ namespace DA2_WeSplit.Screens
                 {
 
                     var info = new FileInfo(file);
+                    //var newName = $"{Guid.NewGuid()}{info.Extension}";
 
-                    var newName = $"{Guid.NewGuid()}{info.Extension}";
+                    //var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
+                    //File.Copy(file, $"{currentFolder}Assets\\Images\\{newName}");
+                    fileList.Add(file);
+                    HinhAnhChuyenDi newImageTemp = new HinhAnhChuyenDi() { HinhAnh = info.ToString(), MaChuyenDi = this.maChuyenDi };
+                    //HinhAnhChuyenDi newImage = new HinhAnhChuyenDi() { HinhAnh = newName, MaChuyenDi = this.maChuyenDi };
 
-                    var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
-                    File.Copy(file, $"{currentFolder}Assets\\Images\\{newName}");
+                    //foreach (HinhAnhChuyenDi image in images)
+                    //{
+                    //    if(image.HinhAnh.Equals(newImage.HinhAnh))
+                    //    {
+                    //        MessageBox.Show("Đã tồn tại hình ảnh này");
+                    //        return;
+                    //    }
+                    //}
 
-                    HinhAnhChuyenDi newImage = new HinhAnhChuyenDi() { HinhAnh = $"{currentFolder}Assets\\Images\\{newName}", MaChuyenDi = this.maChuyenDi };
-                    foreach(HinhAnhChuyenDi image in images)
-                    {
-                        if(image.HinhAnh.Equals(newImage.HinhAnh))
-                        {
-                            MessageBox.Show("Đã tồn tại hình ảnh này");
-                            return;
-                        }
-                    }
-                    images.Add(newImage);
+                    imagesTemp.Add(newImageTemp);
                 }
             }
         }
-
+        
         private void OnSubmit(object sender, RoutedEventArgs e)
         {
             String tripName = txtTripName.Text;
@@ -241,7 +272,7 @@ namespace DA2_WeSplit.Screens
                 curState = 0;
             }
 
-            ChuyenDi newTrip = new ChuyenDi(maChuyenDi, tripName, curState, location, description);
+            ChuyenDi newTrip = new ChuyenDi(maChuyenDi, tripName, curState, location, description, anhbiaChuyenDi);
             chuyenDiDAOImpl.addChuyenDi(newTrip);
 
             if (extraExpense.Count() > 0)
@@ -273,14 +304,89 @@ namespace DA2_WeSplit.Screens
                 }
             }
 
-            if(images.Count() > 0)
+            
+
+            if (fileList.Count() > 0)
             {
-                foreach(HinhAnhChuyenDi image in images)
+                //foreach(HinhAnhChuyenDi image in images)
+                //{
+                //    hinhAnhChuyenDiDAOlmpl.addHinhAnhChuyenDi(image);
+                //}
+
+                var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
+                
+                foreach (string file in fileList)
                 {
-                    hinhAnhChuyenDiDAOlmpl.addHinhAnhChuyenDi(image);
+                    var info = new FileInfo(file);
+                    var newName = $"{Guid.NewGuid()}{info.Extension}";
+                    File.Copy(file, $"{currentFolder}Assets\\Images\\{newName}");
+                    HinhAnhChuyenDi newImage = new HinhAnhChuyenDi() { HinhAnh = newName, MaChuyenDi = this.maChuyenDi };
+                    hinhAnhChuyenDiDAOlmpl.addHinhAnhChuyenDi(newImage);
+
                 }
             }
+            //ChuyenDi newTrip = new ChuyenDi(maChuyenDi, tripName, curState, location, description, anhbia);
+            //chuyenDiDAOImpl.addChuyenDi(newTrip);
+            if(anhbiaChuyenDi != "")
+            {
+                var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
+                string file = AvatarName;
+                File.Copy(file, $"{currentFolder}Assets\\Images\\{newNameAvt}");
+            }
             MessageBox.Show("Đã hoàn thành");
+        }
+
+        
+
+        private void addAvatar_Click(object sender, RoutedEventArgs e)
+        {
+            //var screen = new OpenFileDialog();
+            //screen.Multiselect = true;
+            //var files = screen.FileNames;
+
+            //AvatarName = file;
+            //var info = new FileInfo(file);
+            //if (screen.ShowDialog() == true)
+            //{
+            //    try
+            //    {
+            //        var bitmap = new BitmapImage(new Uri(@file, UriKind.Relative));
+            //        Avatar.ImageSource = bitmap;
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //    }
+            //}
+
+            var screen = new OpenFileDialog();
+            screen.Multiselect = true;
+
+            if (screen.ShowDialog() == true)
+            {
+                var files = screen.FileNames;
+
+                foreach (var file in files)
+                {
+
+                    var info = new FileInfo(file);
+                    AvatarName = file;
+
+                    var newName = $"{Guid.NewGuid()}{info.Extension}";
+                    anhbiaChuyenDi = newName;
+                    newNameAvt = newName;
+
+                    try
+                    {
+                        var bitmap = new BitmapImage(new Uri(@file, UriKind.Relative));
+                        Avatar.ImageSource = bitmap;
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
         }
     }
 }

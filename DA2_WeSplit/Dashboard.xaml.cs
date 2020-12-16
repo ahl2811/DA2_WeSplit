@@ -37,10 +37,10 @@ namespace DA2_WeSplit
 
         private void insertDefaultDatabase()
         {
-            String query = "insert into CHUYENDI values ('001', N'Biển Vũng Tàu', '0', N'Vũng Tàu',  N'Từ lâu Vũng tàu đã nổi tiếng với các bãi biển trải dài tuyệt đẹp của mình, tuy nhiên người ta thường chỉ nhớ tới Bãi trước và Bãi Sau mà quên rằng Vũng Tàu còn rất nhiều bãi biển đẹp khác.')," +
-                "('002', N'Rạn Nam Ô', '0', N'Đã Nẵng', N'Có về Đà Nẵng, có qua hết các danh thắng quen mặt thì hãy dành thời gian cho bãi Rạn Nam Ô. Đến Rạn Nam Ô rồi, du khách không khỏi phải hồ hởi bất ngờ bởi bức họa muôn màu đến kỳ ảo mà bãi biển này mang lại. Nhất định, sẽ yêu ngay từ cái nhìn đầu tiên.')," +
-                "('003', N'Mũi Né 4N3Đ', '0', N'Phan Thiết', N'Mũi Né là trung tâm du lịch của thành phố phan thiết, nổi tiếng với những đồi cát rộng mênh mang, bãi biển tuyệt đẹp và những hàng dừa cao vút bao quanh bao biển quanh năm tràn ngập ánh nắng.')," +
-                "('004', N'Rừng Dừa 7 Mẫu', '0', N'Hội An', N'Du lịch Hội An chưa bao giờ hết hot với nhiều địa điểm lưu giữ lịch sử, không thể không kể đến Rừng dừa Bảy Mẫu, một nơi mà bạn chắc chắn sẽ thích thú khi được khám phá cảnh quan tuyệt đẹp và còn được chèo thuyền thúng để thử cái cảm giác lâng lâng khi lênh đênh trên sông nước nữa đấy.')";
+            String query = "insert into CHUYENDI values ('001', N'Biển Vũng Tàu', '0', N'Vũng Tàu',  N'Từ lâu Vũng tàu đã nổi tiếng với các bãi biển trải dài tuyệt đẹp của mình, tuy nhiên người ta thường chỉ nhớ tới Bãi trước và Bãi Sau mà quên rằng Vũng Tàu còn rất nhiều bãi biển đẹp khác.', 'preyta.jpg')," +
+                "('002', N'Rạn Nam Ô', '0', N'Đã Nẵng', N'Có về Đà Nẵng, có qua hết các danh thắng quen mặt thì hãy dành thời gian cho bãi Rạn Nam Ô. Đến Rạn Nam Ô rồi, du khách không khỏi phải hồ hởi bất ngờ bởi bức họa muôn màu đến kỳ ảo mà bãi biển này mang lại. Nhất định, sẽ yêu ngay từ cái nhìn đầu tiên.', 'preyta.jpg')," +
+                "('003', N'Mũi Né 4N3Đ', '0', N'Phan Thiết', N'Mũi Né là trung tâm du lịch của thành phố phan thiết, nổi tiếng với những đồi cát rộng mênh mang, bãi biển tuyệt đẹp và những hàng dừa cao vút bao quanh bao biển quanh năm tràn ngập ánh nắng.', 'preyta.jpg')," +
+                "('004', N'Rừng Dừa 7 Mẫu', '0', N'Hội An', N'Du lịch Hội An chưa bao giờ hết hot với nhiều địa điểm lưu giữ lịch sử, không thể không kể đến Rừng dừa Bảy Mẫu, một nơi mà bạn chắc chắn sẽ thích thú khi được khám phá cảnh quan tuyệt đẹp và còn được chèo thuyền thúng để thử cái cảm giác lâng lâng khi lênh đênh trên sông nước nữa đấy.','preyta.jpg')";
             DatabaseHelper.executeQuery(query);
 
 
@@ -111,6 +111,8 @@ namespace DA2_WeSplit
             String db = "QLChuyenDi";
             String query = "";
             String con = $"Server=localhost; Database= master; Trusted_Connection=True;";
+            //query = "drop database QLChuyenDi";
+            //DatabaseHelper.executeQuery(query);
             bool isCreated = DatabaseHelper.isDatabaseExists(con, db);
 
             if (!isCreated)
@@ -178,6 +180,7 @@ namespace DA2_WeSplit
                                 "TRANGTHAI int," +
                                 "DIADIEM nvarchar(50)," +
                                 "MOTA nvarchar(1000)," +
+                                "ANHBIA varchar(200)," +
                                 "primary key(MACHUYENDI))";
             DatabaseHelper.executeQuery(query);
 
@@ -211,7 +214,7 @@ namespace DA2_WeSplit
                 "MACHUYENDI varchar(6)," +
                 "NDCHI nvarchar(100)," +
                 "SOTIEN int," +
-                "primary key(STT))";
+                "primary key(STT, MACHUYENDI))";
             DatabaseHelper.executeQuery(query);
 
             query = "create table MUCUNGTRUOC(" +

@@ -28,6 +28,8 @@ namespace DA2_WeSplit.ViewModel
             mucChiList = mcDao.GetMucChiByTripId(maChuyenDi);
 
             hinhAnhList = new ObservableCollection<HinhAnhChuyenDi>();
+            
+            hinhAnhList.Add(new HinhAnhChuyenDi() { HinhAnh =  chuyenDi.AnhBia});
             HinhAnhChuyenDiDAOlmpl haDao = new HinhAnhChuyenDiDAOlmpl();
             List<HinhAnhChuyenDi> haList = haDao.GetAllHinhAnhChuyenDi();
 

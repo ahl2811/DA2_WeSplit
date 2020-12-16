@@ -176,7 +176,7 @@
                          VerticalAlignment="Top"
                                     >
                                 <Border.Background>
-                                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Images/Captain.jpg"/>
+                                    <ImageBrush Stretch="Fill" ImageSource="{Binding AnhBia}"/>
                                 </Border.Background>
                                 <Grid Height="50">
 
