@@ -34,7 +34,7 @@ namespace DA2_WeSplit.Database
 
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
                     hinhAnhChuyenDi.MaChuyenDi = reader[0].ToString();
-                    hinhAnhChuyenDi.HinhAnh = reader[1].ToString();
+                    hinhAnhChuyenDi.HinhAnh = $"{currentFolder}Assets\\Images\\{reader[1].ToString()}";
 
                     hinhAnhChuyenDiList.Add(hinhAnhChuyenDi);
                 }
@@ -90,12 +90,25 @@ namespace DA2_WeSplit.Database
             {
                 if(tmp.MaChuyenDi == tripCode)
                 {
-                    hinhAnhChuyenDi = tmp;
+                    hinhAnhChuyenDi = new HinhAnhChuyenDi(tmp.MaChuyenDi, tmp.HinhAnh);
                     break;
                 }
             }
 
             return hinhAnhChuyenDi;
+        }
+
+        public List<HinhAnhChuyenDi>GetImageListByTripId(string id)
+        {
+            List<HinhAnhChuyenDi> rs = new List<HinhAnhChuyenDi>();
+            foreach(HinhAnhChuyenDi ha in hinhAnhChuyenDiList)
+            {
+                if(ha.MaChuyenDi == id)
+                {
+                    rs.Add(ha);
+                }
+            }
+            return rs;
         }
 
         public void updateHinhAnhChuyenDi()

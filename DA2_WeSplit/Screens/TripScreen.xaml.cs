@@ -24,7 +24,8 @@ namespace DA2_WeSplit.Screens
     public partial class TripScreen : UserControl
     {
         public delegate void DelegateType(int type);
-        public event DelegateType LearnMoreHandler;
+        public delegate void Detail_Delegate(int type, string maChuyenDi);
+        public event Detail_Delegate LearnMoreHandler;
         public event DelegateType AddNewTripHandler;
 
         TripViewModel tripVM;
@@ -102,9 +103,12 @@ namespace DA2_WeSplit.Screens
 
         private void LearnMoreButton_Click(object sender, RoutedEventArgs e)
         {
+            Button sd = sender as Button;
+            ChuyenDi cdi = (ChuyenDi)sd.DataContext;
+            string maChuyenDi = cdi.MaChuyenDi;
             if (LearnMoreHandler != null)
             {
-                LearnMoreHandler(Type);
+                LearnMoreHandler(Type, maChuyenDi);
             }
         }
 

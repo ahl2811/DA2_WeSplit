@@ -1,4 +1,6 @@
-﻿using LiveCharts;
+﻿using DA2_WeSplit.Database;
+using DA2_WeSplit.ViewModel;
+using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using System;
@@ -128,7 +130,8 @@ namespace DA2_WeSplit.Screens
         public event DelegateType ExitHandler;
         public int type;
         ObservableCollection<Population> Populations;
-        public TripDetailScreen(int type)
+        TripDetailVM tripDetailVM;
+        public TripDetailScreen(int type, string maChuyenDi)
         {
             Populations = new ObservableCollection<Population>();
             Populations.Add(new Population() { Name = "China", Count = 1340 });
@@ -144,33 +147,29 @@ namespace DA2_WeSplit.Screens
             //}
             List<PieSeries> PieChartSeriesCollection;
 
-            
+            ObservableCollection<MucChi> mc = new ObservableCollection<MucChi>();
+            MucChiDAOlmpl mcDao = new MucChiDAOlmpl();
 
-            
+            //mainImage.ImageSource = new BitmapImage(new Uri(@"", UriKind.Relative));
+
 
             PieChartSeriesCollection = new List<PieSeries>();
 
+
             InitializeComponent();
-            foreach (Population p in Populations)
-            {
-                PieSeries ps = new PieSeries() { Title = $"{p.Name}", Values = new ChartValues<int> { p.Count }, DataLabels = true };
-                myChart.Series.Add(ps);
-                //myChart2.Series.Add(ps);
-            }
+
             this.type = type;
-
+            tripDetailVM = new TripDetailVM(maChuyenDi);
+            this.DataContext = tripDetailVM;
+            PlaceListView.ItemsSource = tripDetailVM.loTrinhList;
+            ImageListView.ItemsSource = tripDetailVM.hinhAnhList;
+            ThanhVienListView.ItemsSource = tripDetailVM.thanhVienList;
             
-        }
-
-        private void GetDataForChart(ObservableCollection<Population> Populations)
-        {
-
-            System.Collections.IList list = Populations;
-            for (int i = 0; i < list.Count; i++)
+            foreach (MucChi m in tripDetailVM.mucChiList)
             {
-                Population p = (Population)list[i];
-                
-            };
+                PieSeries ps = new PieSeries() { Title = m.NDChi, Values = new ChartValues<int> { m.SoTien }, DataLabels = true };
+                myChart.Series.Add(ps);
+            }
         }
 
 
@@ -196,11 +195,12 @@ namespace DA2_WeSplit.Screens
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (Population p in Populations)
+            ThanhVienDAOlmpl tv = new ThanhVienDAOlmpl();
+            foreach (CHUYENDI_THANHVIEN mt in tripDetailVM.tvThamGiaList)
             {
-                PieSeries ps = new PieSeries() { Title = $"{p.Name}", Values = new ChartValues<int> { p.Count }, DataLabels = true };
+                ThanhVien tmp = tv.GetMemberById(mt.MaThanhVien);
+                PieSeries ps = new PieSeries() { Title = tmp.TenThanhVien, Values = new ChartValues<int> { mt.TienThu }, DataLabels = true };
                 myChart2.Series.Add(ps);
-                //myChart2.Series.Add(ps);
             }
         }
 
@@ -230,6 +230,13 @@ namespace DA2_WeSplit.Screens
             MemberBorder.Visibility = Visibility.Collapsed;
             MemberButton.Content = "Mở rộng >>";
             MemberButton.Foreground = new SolidColorBrush(Colors.Blue);
+        }
+
+        private void ImageListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ImageListView.SelectedIndex;
+            var imgName = tripDetailVM.hinhAnhList[index].HinhAnh;
+            mainImage.ImageSource = new BitmapImage(new Uri(@imgName, UriKind.Relative));
         }
     }
 }

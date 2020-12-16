@@ -183,6 +183,7 @@ namespace DA2_WeSplit
             if(this.WindowState != WindowState.Maximized)
             {
                 this.WindowState = WindowState.Maximized;
+                
             }
             else
             {
@@ -200,10 +201,10 @@ namespace DA2_WeSplit
             UpdateTripScreen(0);
         }
 
-        private void LearnMoreButtonClick(int type)
+        private void LearnMoreButtonClick(int type, string maChuyenDi)
         {
             MainScreen.Children.Clear();
-            var tripDetailScreen = new TripDetailScreen(type);
+            var tripDetailScreen = new TripDetailScreen(type, maChuyenDi);
             MainScreen.Children.Add(tripDetailScreen);
             tripDetailScreen.ExitHandler += exitDetailTripScreenButton_Click;
         }

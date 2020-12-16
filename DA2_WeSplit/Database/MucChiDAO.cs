@@ -11,5 +11,7 @@ namespace DA2_WeSplit.Database
         List<MucChi> GetAllMucChi();
         void updateMucChi();
         void addMucChi(MucChi mucChi);
+
+        
     }
 }

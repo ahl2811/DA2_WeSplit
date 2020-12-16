@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection.Emit;
@@ -90,6 +91,19 @@ namespace DA2_WeSplit.Database
         public void updateMucChi()
         {
             throw new NotImplementedException();
+        }
+
+        public ObservableCollection<MucChi> GetMucChiByTripId(string Id)
+        {
+            ObservableCollection<MucChi> list = new ObservableCollection<MucChi>();
+            foreach(MucChi mc in mucChiList)
+            {
+                if (mc.MaChuyenDi == Id)
+                {
+                    list.Add(mc);
+                }
+            }
+            return list;
         }
     }
 }

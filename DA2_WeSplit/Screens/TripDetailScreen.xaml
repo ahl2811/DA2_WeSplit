@@ -7,27 +7,12 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800" Loaded="UserControl_Loaded">
-
-    <!--<Canvas Margin="50,90,29,92">
-        <metrochart:PieChart
-             Style="{StaticResource MinimalChartStyle}"
-        
-        ChartTitle="Minimal Pie Chart"
-        ChartSubTitle="Chart with fixed width and height"
-        SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" >
-            <metrochart:PieChart.Series>
-                <metrochart:ChartSeries
-                SeriesTitle="Populations"
-                DisplayMember="Name"
-                ValueMember="Count"
-                ItemsSource="{Binding Path=Populations}" />
-            </metrochart:PieChart.Series>
-        </metrochart:PieChart>
-    </Canvas>-->
-
-
-
-
+    <UserControl.Resources>
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="Height" Value="10"/>
+        </Style>
+    </UserControl.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -127,7 +112,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <TextBlock Text="Chi Tiết Chuyến Đi" FontSize="20" Foreground="Teal" HorizontalAlignment="Center">
+                <TextBlock Text="Chi Tiết Chuyến Đi" FontSize="18" Foreground="#008B8B" HorizontalAlignment="Center">
 
                 </TextBlock>
             </Grid>
@@ -147,18 +132,34 @@
 
                 <Grid Grid.Row="0">
                     <!--Anh-->
-                    <Border CornerRadius="10" BorderThickness="0" Width="auto" Height="auto" Margin="10,10">
+                    <Border  CornerRadius="10" BorderThickness="1" BorderBrush="WhiteSmoke" Width="auto" Height="auto" Margin="10,10">
                         <Border.Background>
-                            <ImageBrush ImageSource="/Assets/Images/Captain.jpg"/>
+                            <ImageBrush x:Name="mainImage" ImageSource="/Assets/Images/Captain.jpg"/>
                         </Border.Background>
                     </Border>
 
                 </Grid>
                 <Grid Grid.Row="1" >
                     <Border CornerRadius="10" Background="WhiteSmoke" Margin="10,0,10,0" BorderThickness="0">
-                        <ListView   ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                              Name="ImageListView" Background="Transparent" BorderThickness="0">
-
+                        <ListView
+                              Name="ImageListView" Background="Transparent" BorderThickness="0" Padding="5,10" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            SelectionChanged="ImageListView_SelectionChanged" VerticalContentAlignment="Center"
+                            >
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="0" CornerRadius="5" Width="100" Margin="5,0,5,0" Height="60">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding HinhAnh}" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        </Border.Background>
+                                    </Border>
+                                    
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
                         </ListView>
                     </Border>
                     
@@ -175,13 +176,13 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Tên Chuyến Đi" Foreground="Orange" FontSize="24" FontWeight="SemiBold"
+                                <TextBlock Text="{Binding chuyenDi.TenChuyenDi}" Foreground="Orange" FontSize="24" FontWeight="SemiBold"
                                        HorizontalAlignment="Center" Margin="0,5,0,0">
 
                                 </TextBlock>
                             </Grid>
-                            <Grid Grid.Row="1">
-                                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <Grid Grid.Row="1" >
+                                <ScrollViewer x:Name="MotaView" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                                     <StackPanel>
                                         <Border CornerRadius="10" BorderThickness="0" Width="auto" Height="auto" Margin="10,0" Background="WhiteSmoke">
                                             <StackPanel HorizontalAlignment="Center">
@@ -189,27 +190,53 @@
 
                                                 </TextBlock>
 
-                                                <TextBlock Text="aaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaa aaaaa aa aaa aaa a aaaaaaa aa aaaaaaa aaa aaa aaaaaaaaa aa aa aaaaaaaaa
-                                                   aaaaa aaaaaaaaa aaaaaaaaaaa aaaaaaa aaaaa aa aaa aaa a aaaaaaa aa aaaaaaa aaa aaa aaaaaaaaa aa aa aaaaaaaaa
-                                                   "
+                                                <TextBlock Text="{Binding chuyenDi.MoTa}"
                                            TextWrapping="Wrap" TextAlignment="Justify" FontSize="13.5" Foreground="#555555">
 
                                                 </TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Địa điểm:" Foreground="Teal" TextDecorations="underline">
+                                                    </TextBlock>
+                                                    <TextBlock Text="{Binding chuyenDi.DiaDiem}" Margin="5,0,0,0" FontSize="13.5" Foreground="#555555"
+                                                               VerticalAlignment="Bottom"></TextBlock>
+                                                </StackPanel>
+                                                
+                                                
                                                 <Border CornerRadius="10" BorderThickness="1" Width="auto" Height="auto" Background="WhiteSmoke">
                                                     <StackPanel>
-                                                        <TextBlock Text="Danh sách địa điểm:" Foreground="Teal" TextDecorations="underline">
+                                                        <TextBlock Text="Danh sách mốc lộ trình:" Foreground="Teal" TextDecorations="underline">
                                                         </TextBlock>
-                                                        <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gold" Height="80" Width="320" HorizontalAlignment="Left"
+                                                        <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gold" Width="320" HorizontalAlignment="Left"
                                                                 Margin="0,5,0,0" Visibility="Collapsed"
                                                                 Name="PlaceBorder">
                                                             <ListView   BorderThickness="0"  Background="Transparent"
-                                                            Name="PlaceListView">
+                                                            Name="PlaceListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                                <ListView.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Border CornerRadius="3" Width="305" Height="20" Background="#F1F1F1">
+                                                                            <Grid>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="20"/>
+                                                                                    <ColumnDefinition/>
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <Image Source="/Assets/Icon/location.png" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality">
+                                                                                    
+                                                                                </Image>
+                                                                                <Grid Grid.Column="1">
+                                                                                    <TextBlock Text="{Binding MocLoTrinh}" FontSize="13" Foreground="Red"/>
+                                                                                </Grid>
+                                                                                
+                                                                            </Grid>
+
+                                                                        </Border>
+                                                                    </DataTemplate>
+                                                                </ListView.ItemTemplate>
                                                             </ListView>
                                                         </Border>
                                                         <ToggleButton Name="PlaceButton" Content="Mở rộng >>" Width="65" HorizontalAlignment="Left" Checked="PlaceButton_Checked"
                                                                       Unchecked="PlaceButton_Unchecked"
                                                                       Background="Transparent" HorizontalContentAlignment="Left" Foreground="Blue"
-                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0">
+                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="True">
                                                             
                                                         </ToggleButton>
                                                     </StackPanel>
@@ -219,17 +246,37 @@
                                                     <StackPanel>
                                                         <TextBlock Text="Danh sách thành viên:" Foreground="Teal" TextDecorations="underline">
                                                         </TextBlock>
-                                                        <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gold" Height="80" Width="320" HorizontalAlignment="Left"
+                                                        <Border CornerRadius="10" BorderThickness="1" BorderBrush="Gold" Width="320" HorizontalAlignment="Left"
                                                                 Margin="0,5,0,0" Visibility="Collapsed" Name="MemberBorder">
                                                             <ListView   BorderThickness="0"  Background="Transparent"
-                                               Name="ThanhVienListView">
+                                               Name="ThanhVienListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                                                <ListView.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Border CornerRadius="3" Width="305" Height="20" Background="#F1F1F1">
+                                                                            <Grid>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="20"/>
+                                                                                    <ColumnDefinition/>
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <Image Source="/Assets/Icon/person.png" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality">
+
+                                                                                </Image>
+                                                                                <Grid Grid.Column="1">
+                                                                                    <TextBlock Text="{Binding TenThanhVien}" FontSize="13" Foreground="Red"/>
+                                                                                </Grid>
+
+                                                                            </Grid>
+
+                                                                        </Border>
+                                                                    </DataTemplate>
+                                                                </ListView.ItemTemplate>
                                                             </ListView>
                                                         </Border>
                                                         
                                                         <ToggleButton Name="MemberButton" Content="Mở rộng >>" Width="65" HorizontalAlignment="Left" Checked="MemberButton_Checked"
                                                                       Unchecked="MemberButton_Unchecked"
                                                                       Background="Transparent" HorizontalContentAlignment="Left" Foreground="Blue"
-                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0">
+                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="True">
 
                                                         </ToggleButton>
                                                     </StackPanel>
@@ -267,7 +314,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Margin="0,5,0,0">
-                                <TextBlock Height="20" Text="Biểu đồ thu chi" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
+                                <TextBlock Height="20" Text="Biểu đồ khoản chi" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
@@ -289,7 +336,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Margin="0,5,0,0">
-                                <TextBlock Height="20" Text="Biểu đồ thu chi" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
+                                <TextBlock Height="20" Text="Biểu đồ khoản thu" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
                                        VerticalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">

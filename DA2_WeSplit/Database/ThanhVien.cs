@@ -7,24 +7,9 @@ namespace DA2_WeSplit.Database
         public String MaThanhVien { get; set; }
         public String TenThanhVien { get; set; }
 
-        public ThanhVien(string maThanhVien, string tenThanhVien, int tienThu)
+        public ThanhVien(string maThanhVien, string tenThanhVien)
         {
-            ThanhVienDAOlmpl thanhVienDAOlmpl = new ThanhVienDAOlmpl();
-            Random random = new Random();
-
-            while (true)
-            {
-                int tmpCode = -1;
-                tmpCode = random.Next();
-                foreach (ThanhVien thanhVien in thanhVienDAOlmpl.GetAllThanhVien())
-                {
-                    if (thanhVien.MaThanhVien.Equals(tmpCode.ToString()))
-                    {
-                        continue;
-                    }
-                }
-                this.MaThanhVien = tmpCode.ToString();
-            }
+            this.MaThanhVien = maThanhVien;
             this.TenThanhVien = tenThanhVien;
         }
         public ThanhVien() {; }

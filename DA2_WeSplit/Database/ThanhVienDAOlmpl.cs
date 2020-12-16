@@ -92,5 +92,18 @@ namespace DA2_WeSplit.Database
             throw new NotImplementedException();
         }
 
+        public ThanhVien GetMemberById(string id)
+        {
+            ThanhVien rs = new ThanhVien();
+            foreach(var tv in thanhVienList)
+            {
+                if(tv.MaThanhVien == id)
+                {
+                    rs = new ThanhVien(tv.MaThanhVien, tv.TenThanhVien);
+                    break;
+                }
+            }
+            return rs;
+        }
     }
 }

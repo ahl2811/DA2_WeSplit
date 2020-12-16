@@ -109,6 +109,7 @@
     <Compile Include="Screens\TripScreen.xaml.cs">
       <DependentUpon>TripScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\TripDetailVM.cs" />
     <Page Include="Assets\icons.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -199,6 +200,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\default_trip_image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icon\location.png" />
+    <Resource Include="Assets\Icon\person.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

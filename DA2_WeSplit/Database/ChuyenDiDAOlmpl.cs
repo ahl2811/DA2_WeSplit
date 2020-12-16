@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection.Emit;
@@ -123,6 +124,20 @@ namespace DA2_WeSplit.Database
         public void updateChuyenDi()
         {
             throw new NotImplementedException();
+        }
+
+        public ChuyenDi getChuyenDiById(string Id)
+        {
+            ChuyenDi result = new ChuyenDi();
+            foreach(var cd in chuyenDiList)
+            {
+                if(cd.MaChuyenDi == Id)
+                {
+                    result = new ChuyenDi(cd.MaChuyenDi, cd.TenChuyenDi, cd.TrangThai, cd.DiaDiem, cd.MoTa);
+                    break;
+                }
+            }
+            return result;
         }
     }
 }

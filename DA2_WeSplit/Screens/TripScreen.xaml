@@ -94,6 +94,7 @@
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
+                    
                     <Button.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -116,6 +117,7 @@
 
                         </Grid>
                     </Button.Content>
+                    
                 </Button>
             </Grid>
 

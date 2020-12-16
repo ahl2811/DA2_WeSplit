@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,6 @@ namespace DA2_WeSplit.Database
 
 		public ChuyenDi (string maChuyenDi, string tenChuyenDi, string trangThai, string diaDiem, string moTa)
         {
-			ChuyenDiDAOImpl chuyenDiDAOImpl = new ChuyenDiDAOImpl();
-			
 			Random random = new Random();
 
 			this.MaChuyenDi = maChuyenDi;

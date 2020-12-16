@@ -21,5 +21,7 @@ namespace DA2_WeSplit.Database
             this.SoTien = soTien;
         }
         public MucChi() {; }
+
+        
     }
 }
