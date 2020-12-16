@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -92,8 +93,6 @@ namespace DA2_WeSplit.Screens
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //NewTrip newTrip = new NewTrip();
-            //newTrip.Show();
             if (AddNewTripHandler != null)
             {
                 AddNewTripHandler(Type);
@@ -110,31 +109,121 @@ namespace DA2_WeSplit.Screens
 
         private void keywordTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if(cbCatalog.Text.Equals("Theo chuyến đi"))
+            {
+                filterByTrip();
+            }
+            else if (cbCatalog.Text.Equals("Theo thành viên"))
+            {
+                filterByMember();
+            }
+        }
+
+        private void filterByMember()
+        {
             cdList.Clear();
             foreach (var trip in cdDao.GetAllChuyenDi())
             {
                 cdList.Add(trip);
             }
             String filterQuery = keywordTextBox.Text;
-            if (filterQuery == "")
+            if (!filterQuery.Equals(""))
             {
-                tripVM.TripList.Clear();
-                foreach (var trip in cdDao.GetAllChuyenDi())
+                String unSignLowerMemberName = ConvertToUnSign(filterQuery.ToLower());
+                ChuyenDiThanhVienDAOImpl tripMemberDAO = new ChuyenDiThanhVienDAOImpl();
+                List<CHUYENDI_THANHVIEN> trip_members = tripMemberDAO.GetCHUYENDI_THANHVIENList();
+
+                ThanhVienDAOlmpl memberDAO = new ThanhVienDAOlmpl();
+                List<ThanhVien> members = memberDAO.GetAllThanhVien();
+
+                for (int i = 0; i < members.Count(); i++)
                 {
-                    tripVM.TripList.Add(trip);
+                    ThanhVien member = members[i];
+                    String unSignLowerMemberNameItem = ConvertToUnSign(member.TenThanhVien.ToLower());
+                    if (!unSignLowerMemberNameItem.Contains(unSignLowerMemberName))
+                    {
+                        members.Remove(member);
+                        i--;
+                    }
                 }
-            } else
-            {
+
+                for (int i = 0; i < trip_members.Count(); i++)
+                {
+                    CHUYENDI_THANHVIEN trip_member = trip_members[i];
+                    for (int j = 0; j < members.Count(); j++)
+                    {
+                        if (trip_member.MaThanhVien.Equals(members[j].MaThanhVien))
+                        {
+                            break;
+                        }
+
+                        if (j == members.Count() - 1)
+                        {
+                            trip_members.Remove(trip_member);
+                            i--;
+                        }
+                    }
+                }
+
                 for (int i = 0; i < cdList.Count(); i++)
                 {
                     ChuyenDi trip = cdList[i];
-                    if (!trip.TenChuyenDi.ToLower().Contains(filterQuery.ToLower()))
+                    for (int j = 0; j < trip_members.Count(); j++)
+                    {
+                        if (trip.MaChuyenDi.Equals(trip_members[j].MaChuyenDi))
+                        {
+                            break;
+                        }
+
+                        if (j == trip_members.Count() - 1)
+                        {
+                            i--;
+                            tripVM.TripList.Remove(trip);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void filterByTrip()
+        {
+            cdList.Clear();
+            foreach (var trip in cdDao.GetAllChuyenDi())
+            {
+                cdList.Add(trip);
+            }
+            String filterQuery = keywordTextBox.Text;
+            if (!filterQuery.Equals(""))
+            {
+                String unSignLowerTripName = ConvertToUnSign(filterQuery.ToLower());
+                for (int i = 0; i < cdList.Count(); i++)
+                {
+                    ChuyenDi trip = cdList[i];
+                    if (!ConvertToUnSign(trip.TenChuyenDi.ToLower()).Contains(unSignLowerTripName))
                     {
                         i--;
                         tripVM.TripList.Remove(trip);
                     }
                 }
             }
+        }
+
+
+        private string ConvertToUnSign(string input)
+        {
+            input = input.Trim();
+            for (int i = 0x20; i < 0x30; i++)
+            {
+                input = input.Replace(((char)i).ToString(), " ");
+            }
+            Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
+            string str = input.Normalize(NormalizationForm.FormD);
+            string str2 = regex.Replace(str, string.Empty).Replace('đ', 'd').Replace('Đ', 'D');
+            while (str2.IndexOf("?") >= 0)
+            {
+                str2 = str2.Remove(str2.IndexOf("?"), 1);
+            }
+            return str2;
         }
     }
 }

@@ -37,7 +37,7 @@ namespace DA2_WeSplit.Database
                     var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
                     chuyenDi.MaChuyenDi = reader[0].ToString();
                     chuyenDi.TenChuyenDi= reader[1].ToString();
-                    chuyenDi.TrangThai = reader[2].ToString();
+                    chuyenDi.TrangThai = Int32.Parse(reader[2].ToString());
                     chuyenDi.DiaDiem = reader[3].ToString();
                     chuyenDi.MoTa = reader[4].ToString();
 

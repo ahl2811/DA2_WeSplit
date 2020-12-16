@@ -200,5 +200,19 @@
   <ItemGroup>
     <Resource Include="Assets\Images\default_trip_image.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\1.png" />
+    <Resource Include="Assets\Images\10.jpg" />
+    <Resource Include="Assets\Images\11.jpg" />
+    <Resource Include="Assets\Images\12.jpg" />
+    <Resource Include="Assets\Images\2.png" />
+    <Resource Include="Assets\Images\3.png" />
+    <Resource Include="Assets\Images\4.jpg" />
+    <Resource Include="Assets\Images\5.jpg" />
+    <Resource Include="Assets\Images\6.jpg" />
+    <Resource Include="Assets\Images\7.jpg" />
+    <Resource Include="Assets\Images\8.jpg" />
+    <Resource Include="Assets\Images\9.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
