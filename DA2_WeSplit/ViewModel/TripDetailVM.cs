@@ -8,6 +8,32 @@ using System.Threading.Tasks;
 
 namespace DA2_WeSplit.ViewModel
 {
+    class ThanhVien_TraLai
+    {
+        public string TenThanhVien { get; set; }
+        public int SoTien { get; set; }
+
+        public ThanhVien_TraLai() { }
+        public ThanhVien_TraLai(string ten, int tien)
+        {
+            this.TenThanhVien = ten;
+            this.SoTien = tien;
+        }
+
+    }
+    class TongKet
+    {
+        public int Tong { get; set; }
+        public int TrungBinh { get; set; }
+        public List<ThanhVien_TraLai> ThanhVienTraLai { get; set; }
+
+        public TongKet() { 
+            ThanhVienTraLai = new List<ThanhVien_TraLai>();
+            Tong = 0;
+            TrungBinh = 0;
+        }
+
+    }
     class TripDetailVM
     {
         public ChuyenDi chuyenDi { get; set; }
@@ -17,7 +43,7 @@ namespace DA2_WeSplit.ViewModel
         public ObservableCollection<CacMocLoTrinh> loTrinhList { get; set; }
         public List<CHUYENDI_THANHVIEN> tvThamGiaList { get; set; }
         //Cac khoan thu
-
+        public TongKet tongKet { get; set; }
         public TripDetailVM() { }
         public TripDetailVM(string maChuyenDi)
         {
@@ -32,6 +58,16 @@ namespace DA2_WeSplit.ViewModel
             hinhAnhList.Add(new HinhAnhChuyenDi() { HinhAnh =  chuyenDi.AnhBia});
             HinhAnhChuyenDiDAOlmpl haDao = new HinhAnhChuyenDiDAOlmpl();
             List<HinhAnhChuyenDi> haList = haDao.GetAllHinhAnhChuyenDi();
+
+            tongKet = new TongKet();
+            int sum = 0;
+            foreach(var mc in mucChiList)
+            {
+                sum += mc.SoTien;
+            }
+            tongKet.Tong = sum;
+
+            
 
             foreach (var ha in haList)
             {
@@ -56,6 +92,24 @@ namespace DA2_WeSplit.ViewModel
                 }
             }
 
+            int count = 0;
+            foreach (var tv in thanhVienList)
+            {
+                count++;
+            }
+            tongKet.TrungBinh = tongKet.Tong / count;
+            //Tien tra lai cua cac thanh vien
+            ThanhVienDAOlmpl thanhVienDao = new ThanhVienDAOlmpl();
+            foreach (var tvtg in tvThamGiaList)
+            {
+                ThanhVien tmp = thanhVienDao.GetMemberById(tvtg.MaThanhVien);
+                ThanhVien_TraLai tvtl = new ThanhVien_TraLai();
+                tvtl.TenThanhVien = tmp.TenThanhVien;
+                tvtl.SoTien = tvtg.TienThu - tongKet.TrungBinh;
+                tongKet.ThanhVienTraLai.Add(tvtl);
+            }
+
+
             loTrinhList = new ObservableCollection<CacMocLoTrinh>();
             CacMocLoTrinhDAOlmpl ltDao = new CacMocLoTrinhDAOlmpl();
             List<CacMocLoTrinh> ltList = ltDao.GetAllCacMocLoTrinh();
@@ -67,6 +121,8 @@ namespace DA2_WeSplit.ViewModel
                     loTrinhList.Add(lt);
                 }
             }
+
+            
         }
     }
 }

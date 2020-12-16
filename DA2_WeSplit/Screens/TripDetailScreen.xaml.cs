@@ -27,7 +27,7 @@ namespace DA2_WeSplit.Screens
     /// Interaction logic for TripDetailScreen.xaml
     /// </summary>
     /// 
-
+    
     public sealed partial class TripDetailScreen : UserControl
     {
         public delegate void DelegateType(int type);
@@ -48,7 +48,8 @@ namespace DA2_WeSplit.Screens
             PlaceListView.ItemsSource = tripDetailVM.loTrinhList;
             ImageListView.ItemsSource = tripDetailVM.hinhAnhList;
             ThanhVienListView.ItemsSource = tripDetailVM.thanhVienList;
-            
+            TongKetListView.ItemsSource = tripDetailVM.tongKet.ThanhVienTraLai;
+
             foreach (MucChi m in tripDetailVM.mucChiList)
             {
                 PieSeries ps = new PieSeries() { Title = m.NDChi, Values = new ChartValues<int> { m.SoTien }, DataLabels = true };

@@ -121,14 +121,14 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Thông tin" Foreground="Orange" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+                                <TextBlock Text="Thông tin" Foreground="Orange" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,3,0,0"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                                     <StackPanel>
                                         <StackPanel>
                                             <TextBlock Text="Tên chuyến đi" FontSize="14" Foreground="Teal" Margin="0, 5, 0, 1"/>
-                                            <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="400" Name="txtTripName" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
+                                            <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="250" Name="txtTripName" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
                                                 <TextBox.Resources>
                                                     <Style TargetType="{x:Type Border}">
                                                         <Setter Property="BorderBrush" Value="Silver"/>
@@ -150,7 +150,7 @@
                                             </ComboBox>
 
                                             <TextBlock Text="Địa điểm" FontSize="14" Foreground="Teal" Margin="0, 5, 0, 1"/>
-                                            <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="400" Name="txtLocation" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
+                                            <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="250" Name="txtLocation" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
                                                 <TextBox.Resources>
                                                     <Style TargetType="{x:Type Border}">
                                                         <Setter Property="BorderBrush" Value="Silver"/>
@@ -161,7 +161,7 @@
 
                                             <TextBlock Text="Các mốc lộ trình" FontSize="14" Foreground="Teal" Margin="0, 5, 0, 1"/>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="400" x:Name="txtMilestone" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
+                                                <TextBox Height="30" HorizontalAlignment="Left" MinWidth="250" MaxWidth="250" x:Name="txtMilestone" Foreground="Teal" FontSize="14" VerticalContentAlignment="Center">
                                                     <TextBox.Resources>
                                                         <Style TargetType="{x:Type Border}">
                                                             <Setter Property="BorderBrush" Value="Silver"/>
@@ -263,7 +263,7 @@
                                                 </Button>
                                             </StackPanel>
 
-                                            <Border BorderThickness="0" CornerRadius="10" MaxHeight="80" MaxWidth="120" Width="120" Height="80"
+                                            <Border BorderThickness="1" BorderBrush="LightGray" CornerRadius="10" MaxHeight="80" MaxWidth="120" Width="120" Height="80"
                                         HorizontalAlignment="Left">
                                                 <Border.Background>
                                                     <ImageBrush x:Name="Avatar" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
@@ -338,7 +338,7 @@
                                             </ListView>
 
                                             <TextBlock Text="Thêm mô tả chuyến đi" FontSize="14" Foreground="Teal" Margin="0, 5, 0, 1"/>
-                                            <TextBox Height="30" HorizontalAlignment="Left" MinWidth="325" MaxWidth="400" 
+                                            <TextBox Height="70" HorizontalAlignment="Left" Width="350"
                                          x:Name="txtDescription" Foreground="Teal" FontSize="14"
                                          MinHeight="50" TextWrapping="Wrap">
                                                 <TextBox.Resources>
@@ -367,7 +367,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Khoản thu chi" Foreground="Orange" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+                                <TextBlock Text="Khoản thu chi" Foreground="Orange" FontSize="18" HorizontalAlignment="Center" FontWeight="SemiBold" Margin="0,3,0,0"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">

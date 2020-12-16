@@ -340,25 +340,6 @@ namespace DA2_WeSplit.Screens
 
         private void addAvatar_Click(object sender, RoutedEventArgs e)
         {
-            //var screen = new OpenFileDialog();
-            //screen.Multiselect = true;
-            //var files = screen.FileNames;
-
-            //AvatarName = file;
-            //var info = new FileInfo(file);
-            //if (screen.ShowDialog() == true)
-            //{
-            //    try
-            //    {
-            //        var bitmap = new BitmapImage(new Uri(@file, UriKind.Relative));
-            //        Avatar.ImageSource = bitmap;
-            //    }
-            //    catch (Exception)
-            //    {
-
-            //    }
-            //}
-
             var screen = new OpenFileDialog();
             screen.Multiselect = true;
 
