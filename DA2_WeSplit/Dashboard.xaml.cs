@@ -67,36 +67,36 @@ namespace DA2_WeSplit
 
 
 
-            query = "insert into HINHANHCHUYENDI values	('001', '..\\Assets\\Images\\1.png')," +
-                "('001', '..\\Assets\\Images\\2.png')," +
-                "('001', '..\\Assets\\Images\\3.png')," +
-                "('002', '..\\Assets\\Images\\4.jpg')," +
-                "('002', '..\\Assets\\Images\\5.jpg')," +
-                "('002', '..\\Assets\\Images\\6.jpg')," +
-                "('003', '..\\Assets\\Images\\7.jpg')," +
-                "('003', '..\\Assets\\Images\\8.jpg')," +
-                "('003', '..\\Assets\\Images\\9.jpg')," +
-                "('004', '..\\Assets\\Images\\10.jpg')," +
-                "('004', '..\\Assets\\Images\\11.jpg')," +
-                "('004', '..\\Assets\\Images\\12.jpg')," +
-                "('005', '..\\Assets\\Images\\13.jpg')," +
-                "('005', '..\\Assets\\Images\\14.jpg')," +
-                "('005', '..\\Assets\\Images\\15.jpg')," +
-                "('006', '..\\Assets\\Images\\16.jpg')," +
-                "('006', '..\\Assets\\Images\\17.jpg')," +
-                "('006', '..\\Assets\\Images\\18.jpg')," +
-                "('007', '..\\Assets\\Images\\19.jpg')," +
-                "('007', '..\\Assets\\Images\\20.png')," +
-                "('007', '..\\Assets\\Images\\21.jpg')," +
-                "('008', '..\\Assets\\Images\\22.jpg')," +
-                "('008', '..\\Assets\\Images\\23.jpg')," +
-                "('008', '..\\Assets\\Images\\24.jpg')," +
-                "('009', '..\\Assets\\Images\\25.jpg')," +
-                "('009', '..\\Assets\\Images\\26.png')," +
-                "('009', '..\\Assets\\Images\\27.jpg')," +
-                "('010', '..\\Assets\\Images\\28.jpg')," +
-                "('010', '..\\Assets\\Images\\29.jpg')," +
-                "('010', '..\\Assets\\Images\\30.jpg')";
+            query = "insert into HINHANHCHUYENDI values	('001', '1.png')," +
+                "('001', '2.png')," +
+                "('001', '3.png')," +
+                "('002', '4.jpg')," +
+                "('002', '5.jpg')," +
+                "('002', '6.jpg')," +
+                "('003', '7.jpg')," +
+                "('003', '8.jpg')," +
+                "('003', '9.jpg')," +
+                "('004', '10.jpg')," +
+                "('004', '11.jpg')," +
+                "('004', '12.jpg')," +
+                "('005', '13.jpg')," +
+                "('005', '14.jpg')," +
+                "('005', '15.jpg')," +
+                "('006', '16.jpg')," +
+                "('006', '17.jpg')," +
+                "('006', '18.jpg')," +
+                "('007', '19.jpg')," +
+                "('007', '20.png')," +
+                "('007', '21.jpg')," +
+                "('008', '22.jpg')," +
+                "('008', '23.jpg')," +
+                "('008', '24.jpg')," +
+                "('009', '25.jpg')," +
+                "('009', '26.png')," +
+                "('009', '27.jpg')," +
+                "('010', '28.jpg')," +
+                "('010', '29.jpg')," +
+                "('010', '30.jpg')";
            DatabaseHelper.executeQuery(query);
 
             query = "insert into CACMOCLOTRINH values ('001', N'Bãi Trước')," +

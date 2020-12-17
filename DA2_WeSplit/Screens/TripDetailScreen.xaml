@@ -112,7 +112,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <TextBlock Text="Chi Tiết Chuyến Đi" FontSize="18" Foreground="#008B8B" HorizontalAlignment="Center">
+                <TextBlock Text="Chi Tiết Chuyến Đi" FontSize="18" Foreground="#008B8B" HorizontalAlignment="Center" FontWeight="SemiBold">
 
                 </TextBlock>
             </Grid>
@@ -132,7 +132,7 @@
 
                 <Grid Grid.Row="0">
                     <!--Anh-->
-                    <Border  CornerRadius="10" BorderThickness="1" BorderBrush="WhiteSmoke" Width="auto" Height="auto" Margin="10,10">
+                    <Border  CornerRadius="10" BorderThickness="1" BorderBrush="WhiteSmoke" Width="auto" Height="auto" Margin="10,10,0,10">
                         <Border.Background>
                             <ImageBrush x:Name="mainImage" ImageSource="{Binding chuyenDi.AnhBia}"/>
                         </Border.Background>
@@ -181,7 +181,7 @@
 
                                 </TextBlock>
                             </Grid>
-                            <Grid Grid.Row="1" >
+                            <Grid Grid.Row="1" Margin="5,0,0,0" >
                                 <ScrollViewer x:Name="MotaView" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                                     <StackPanel>
                                         <Border CornerRadius="10" BorderThickness="0" Width="auto" Height="auto" Margin="10,0" Background="WhiteSmoke">
@@ -236,7 +236,7 @@
                                                         <ToggleButton Name="PlaceButton" Content="Mở rộng >>" Width="65" HorizontalAlignment="Left" Checked="PlaceButton_Checked"
                                                                       Unchecked="PlaceButton_Unchecked"
                                                                       Background="Transparent" HorizontalContentAlignment="Left" Foreground="Blue"
-                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="True">
+                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="False">
                                                             
                                                         </ToggleButton>
                                                     </StackPanel>
@@ -276,7 +276,7 @@
                                                         <ToggleButton Name="MemberButton" Content="Mở rộng >>" Width="65" HorizontalAlignment="Left" Checked="MemberButton_Checked"
                                                                       Unchecked="MemberButton_Unchecked"
                                                                       Background="Transparent" HorizontalContentAlignment="Left" Foreground="Blue"
-                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="True">
+                                                                      Height="18" FontSize="12" FontStyle="Italic" BorderThickness="0" IsChecked="False">
 
                                                         </ToggleButton>
                                                     </StackPanel>
@@ -310,11 +310,11 @@
                     <Border CornerRadius="10" BorderThickness="0" Background="LightGray" >
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="24"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Margin="0,5,0,0">
-                                <TextBlock Height="20" Text="Biểu đồ khoản chi" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
+                                <TextBlock Height="20" Text="Biểu đồ khoản chi" Foreground="Teal" FontSize="14" HorizontalAlignment="Center" FontWeight="SemiBold"
                                        VerticalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
@@ -332,11 +332,11 @@
                     <Border CornerRadius="10" BorderThickness="0" Background="LightGray" >
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="24"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0" Margin="0,5,0,0">
-                                <TextBlock Height="20" Text="Biểu đồ khoản thu" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
+                                <TextBlock Height="20" Text="Biểu đồ khoản thu" Foreground="Teal" FontSize="14" HorizontalAlignment="Center" FontWeight="SemiBold"
                                        VerticalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
@@ -353,11 +353,11 @@
                 <Border CornerRadius="10" Background="LightGray" BorderThickness="0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="24"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Margin="0,5,0,0">
-                            <TextBlock Height="20" Text="Tổng kết" Foreground="Teal" FontSize="14" HorizontalAlignment="Center"
+                            <TextBlock Height="20" Text="Tổng kết" Foreground="Teal" FontSize="14" HorizontalAlignment="Center" FontWeight="SemiBold"
                                        VerticalAlignment="Center"></TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">

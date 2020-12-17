@@ -55,6 +55,8 @@ namespace DA2_WeSplit.Screens
                 PieSeries ps = new PieSeries() { Title = m.NDChi, Values = new ChartValues<int> { m.SoTien }, DataLabels = true };
                 myChart.Series.Add(ps);
             }
+            myChart.FontSize = 12;
+            myChart.Foreground = new SolidColorBrush(Colors.DimGray);
         }
 
 
@@ -87,6 +89,8 @@ namespace DA2_WeSplit.Screens
                 PieSeries ps = new PieSeries() { Title = tmp.TenThanhVien, Values = new ChartValues<int> { mt.TienThu }, DataLabels = true };
                 myChart2.Series.Add(ps);
             }
+            myChart2.FontSize = 12;
+            myChart2.Foreground = new SolidColorBrush(Colors.DimGray);
         }
 
         private void PlaceButton_Checked(object sender, RoutedEventArgs e)

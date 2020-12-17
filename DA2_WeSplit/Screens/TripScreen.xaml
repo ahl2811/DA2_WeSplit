@@ -21,7 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <!--<RowDefinition Height="30"/>-->
         </Grid.RowDefinitions>
 
         <Grid Height="50"  VerticalAlignment="top">
@@ -235,7 +235,7 @@
             
         </Grid>
 
-        <Grid Grid.Row="2" Background="Red" VerticalAlignment="Bottom">
+        <!--<Grid Grid.Row="2" Background="Red" VerticalAlignment="Bottom">
             <DockPanel DockPanel.Dock="Bottom">
                 <StackPanel  MaxHeight="30" Orientation="Horizontal"  HorizontalAlignment="Center">
                     <Button x:Name="btnFirst"  Content="First" Margin="0,0,10,0"/>
@@ -246,6 +246,6 @@
                     <Button x:Name="btnLast"  Content="Last"/>
                 </StackPanel>
             </DockPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </UserControl>
