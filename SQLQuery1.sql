@@ -147,3 +147,5 @@ insert into CACMOCLOTRINH values	('001', N'Bãi Trước'),
 
 
 
+select *
+from CHUYENDI
