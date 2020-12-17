@@ -5,7 +5,6 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Assets\icons.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Card.g.cs
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Dashboard.g.cs
-D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\AddNewTripScreen.g.cs
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SettingScreen.g.cs
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SupportScreen.g.cs
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.g.cs
@@ -16,7 +15,6 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\App.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Card.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Dashboard.baml
-D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\AddNewTripScreen.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SettingScreen.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SupportScreen.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\TripDetailScreen.baml
@@ -27,3 +25,14 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CoreCompileInputs.cache
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.exe
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.pdb
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.dll
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.dll
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.pdb
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.xml
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.pdb
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\bin\Debug\LiveCharts.Wpf.xml
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.g.cs
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SplashScreen.g.cs
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.baml
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SplashScreen.baml
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CopyComplete

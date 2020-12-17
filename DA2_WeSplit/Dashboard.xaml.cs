@@ -37,17 +37,22 @@ namespace DA2_WeSplit
 
         private void insertDefaultDatabase()
         {
-            String query = "insert into CHUYENDI values ('001', N'Biển Vũng Tàu', '0', N'Vũng Tàu',  N'Từ lâu Vũng tàu đã nổi tiếng với các bãi biển trải dài tuyệt đẹp của mình, tuy nhiên người ta thường chỉ nhớ tới Bãi trước và Bãi Sau mà quên rằng Vũng Tàu còn rất nhiều bãi biển đẹp khác.', 'preyta.jpg')," +
-                "('002', N'Rạn Nam Ô', '0', N'Đã Nẵng', N'Có về Đà Nẵng, có qua hết các danh thắng quen mặt thì hãy dành thời gian cho bãi Rạn Nam Ô. Đến Rạn Nam Ô rồi, du khách không khỏi phải hồ hởi bất ngờ bởi bức họa muôn màu đến kỳ ảo mà bãi biển này mang lại. Nhất định, sẽ yêu ngay từ cái nhìn đầu tiên.', 'preyta.jpg')," +
-                "('003', N'Mũi Né 4N3Đ', '0', N'Phan Thiết', N'Mũi Né là trung tâm du lịch của thành phố phan thiết, nổi tiếng với những đồi cát rộng mênh mang, bãi biển tuyệt đẹp và những hàng dừa cao vút bao quanh bao biển quanh năm tràn ngập ánh nắng.', 'preyta.jpg')," +
-                "('004', N'Rừng Dừa 7 Mẫu', '0', N'Hội An', N'Du lịch Hội An chưa bao giờ hết hot với nhiều địa điểm lưu giữ lịch sử, không thể không kể đến Rừng dừa Bảy Mẫu, một nơi mà bạn chắc chắn sẽ thích thú khi được khám phá cảnh quan tuyệt đẹp và còn được chèo thuyền thúng để thử cái cảm giác lâng lâng khi lênh đênh trên sông nước nữa đấy.','preyta.jpg')";
+            String query = "insert into CHUYENDI values ('001', N'Biển Vũng Tàu', '0', N'Vũng Tàu',  N'Từ lâu Vũng tàu đã nổi tiếng với các bãi biển trải dài tuyệt đẹp của mình, tuy nhiên người ta thường chỉ nhớ tới Bãi trước và Bãi Sau mà quên rằng Vũng Tàu còn rất nhiều bãi biển đẹp khác.', '1.png')," +
+                "('002', N'Rạn Nam Ô', '0', N'Đã Nẵng', N'Có về Đà Nẵng, có qua hết các danh thắng quen mặt thì hãy dành thời gian cho bãi Rạn Nam Ô. Đến Rạn Nam Ô rồi, du khách không khỏi phải hồ hởi bất ngờ bởi bức họa muôn màu đến kỳ ảo mà bãi biển này mang lại. Nhất định, sẽ yêu ngay từ cái nhìn đầu tiên.', '4.jpg')," +
+                "('003', N'Mũi Né 4N3Đ', '0', N'Phan Thiết', N'Mũi Né là trung tâm du lịch của thành phố phan thiết, nổi tiếng với những đồi cát rộng mênh mang, bãi biển tuyệt đẹp và những hàng dừa cao vút bao quanh bao biển quanh năm tràn ngập ánh nắng.', '7.jpg')," +
+                "('004', N'Rừng Dừa 7 Mẫu', '0', N'Hội An', N'Du lịch Hội An chưa bao giờ hết hot với nhiều địa điểm lưu giữ lịch sử, không thể không kể đến Rừng dừa Bảy Mẫu, một nơi mà bạn chắc chắn sẽ thích thú khi được khám phá cảnh quan tuyệt đẹp và còn được chèo thuyền thúng để thử cái cảm giác lâng lâng khi lênh đênh trên sông nước nữa đấy.','10.jpg')," +
+                "('005', N'Vịnh Hạ Long', '0', N'Hạ Long', N'Vịnh Hạ Long được Unesco nhiều lần công nhận là di sản thiên nhiên của thế giới với hàng nghìn hòn đảo được làm nên bởi tạo hoá kỳ vĩ và sống động. Vịnh Hạ Long có phong cảnh tuyệt đẹp nên nơi đây là một điểm du lịch rất hấp dẫn với du khách trong nước và quốc tế.','13.jpg'),"+
+                "('006', N'Phượt Mù Cang Chải', '0', N'Yên Bái', N'Du lịch Mù Cang Chải mùa lúa chín là một trong những trải nghiệm tuyệt vời mà bạn không nên bỏ lỡ.','16.jpg')," +
+                "('007', N'Đón Mùa Đông Sa Pa', '0', N'Sa Pa', N'Thời tiết Sapa tháng 11 vẫn có nắng vào ban ngày, đủ để mang lại cảm giác thoải mái cho du khách. Nhiệt độ xuống thấp vào buổi tối nhưng cũng không đến mức lạnh cóng mà chỉ man mát vừa đủ.','19.jpg')," +
+                "('008', N'Du Lịch Đà Nẵng', '0', N'Đà Nẵng', N'Đà Nẵng một trong những trung tâm du lịch hàng đầu miền trung là địa điểm du lịch mà bạn không thể bỏ qua. Với những bãi biển dài, xanh trong, không khí trong lành và những món ăn ngon lành. Check ngay 47 địa điểm du lịch Đà Nẵng đẹp đến quên lối về ngay và lên đường khám phá thành phố đáng sống nhất Việt Nam.','22.jpg')," +
+                "('009', N'Đà Lạt Trip', '0', N'Đà Lạt', N'Bạn sẽ phải lòng Đà Lạt ngay từ lần đầu tiên đặt chân tới bởi vùng đất ấy bình yên như hơi thở, bởi những cái tên mà vùng đất ấy mang trong mình như thành phố ngàn hoa, xứ sở tình yêu, thành phố đượm buồn, thành phố mộng mơ…','25.jpg')," +
+                "('010', N'Du Lịch Phú Quốc', '0', N'Phú Quốc', N'Phú Quốc còn có tên gọi khác là đảo Ngọc hòn đảo lớn nhất nước ta thuộc Vịnh Thái Lan. Hằng năm, nơi đây đón hàng triệu lượt khách du lịch trong và nước bởi vẻ đẹp hoang sơ, quyến rũ và các khách sạn rất đẹp.','28.jpg')";
             DatabaseHelper.executeQuery(query);
 
 
             query = "insert into THANHVIEN values ('00101', N'Lê Anh Hào')," +
                 "('00102', N'Đào Văn Hiếu')," +
                 "('00103', N'Nguyễn Minh Hiếu')," +
-                "('00201', N'Lê Anh Hào')," +
                 "('00202', N'Lý Đông Triệu')," +
                 "('00203', N'Nguyễn Văn Hiển')," +
                 "('00204', N'Đỗ Minh Tiến')," +
@@ -60,20 +65,7 @@ namespace DA2_WeSplit
             DatabaseHelper.executeQuery(query);
 
 
-            query = "insert into CHUYENDI_THANHVIEN values('001', '00101', '5000000')," +
-                "('001', '00102', '1000000')," +
-                "('001', '00103', '1000000')," +
-                "('002', '00201', '10000000')," +
-                "('002', '00202', '2000000')," +
-                "('002', '00203', '2000000')," +
-                "('002', '00204', '2000000')," +
-                "('003', '00301', '5000000')," +
-                "('003', '00302', '5000000')," +
-                "('004', '00401', '4000000')," +
-                "('004', '00402', '4000000')," +
-                "('004', '00403', '2000000')," +
-                "('004', '00404', '2000000')";
-            DatabaseHelper.executeQuery(query);
+
 
             query = "insert into HINHANHCHUYENDI values	('001', '..\\Assets\\Images\\1.png')," +
                 "('001', '..\\Assets\\Images\\2.png')," +
@@ -86,8 +78,26 @@ namespace DA2_WeSplit
                 "('003', '..\\Assets\\Images\\9.jpg')," +
                 "('004', '..\\Assets\\Images\\10.jpg')," +
                 "('004', '..\\Assets\\Images\\11.jpg')," +
-                "('004', '..\\Assets\\Images\\12.jpg')";
-            DatabaseHelper.executeQuery(query);
+                "('004', '..\\Assets\\Images\\12.jpg')," +
+                "('005', '..\\Assets\\Images\\13.jpg')," +
+                "('005', '..\\Assets\\Images\\14.jpg')," +
+                "('005', '..\\Assets\\Images\\15.jpg')," +
+                "('006', '..\\Assets\\Images\\16.jpg')," +
+                "('006', '..\\Assets\\Images\\17.jpg')," +
+                "('006', '..\\Assets\\Images\\18.jpg')," +
+                "('007', '..\\Assets\\Images\\19.jpg')," +
+                "('007', '..\\Assets\\Images\\20.png')," +
+                "('007', '..\\Assets\\Images\\21.jpg')," +
+                "('008', '..\\Assets\\Images\\22.jpg')," +
+                "('008', '..\\Assets\\Images\\23.jpg')," +
+                "('008', '..\\Assets\\Images\\24.jpg')," +
+                "('009', '..\\Assets\\Images\\25.jpg')," +
+                "('009', '..\\Assets\\Images\\26.png')," +
+                "('009', '..\\Assets\\Images\\27.jpg')," +
+                "('010', '..\\Assets\\Images\\28.jpg')," +
+                "('010', '..\\Assets\\Images\\29.jpg')," +
+                "('010', '..\\Assets\\Images\\30.jpg')";
+           DatabaseHelper.executeQuery(query);
 
             query = "insert into CACMOCLOTRINH values ('001', N'Bãi Trước')," +
                 "('001', N'Bãi Sau')," +
@@ -100,8 +110,97 @@ namespace DA2_WeSplit
                 "('003', N'Biển Mũi Né')," +
                 "('004', N'Chùa Cầu')," +
                 "('004', N'Bán Đảo Sơn Trà')," +
-                "('004', N'Rừng Dừa 7 Mẫu')";
+                "('004', N'Rừng Dừa 7 Mẫu')," +
+                "('005', N'Thành Phố Hạ Long')," +
+                "('005', N'Quần Đảo Cát Bà')," +
+                "('005', N'Vịnh Hạ Long'),"+
+                "('006', N'Đèo Khau Pạ')," +
+                "('006', N'Đồi La Phán Tẩn')," +
+                "('006', N'Mù Cang Chải')," +
+                "('007', N'Thung Lũng Mường Hoa')," +
+                "('007', N'Thác Tình Yêu')," +
+                "('007', N'Thung Lũng Hao Hồng')," +
+                "('008', N'Bà Nà Hill')," +
+                "('008', N'Asia Park')," +
+                "('008', N'Bảo Tàng 3D TrickEye')," +
+                "('009', N'Hồ Xuân Hương')," +
+                "('009', N'Thung Lũng Tình Yêu')," +
+                "('009', N'Trường Đại Học Đà Lạt')," +
+                "('010', N'Chợ Phú Quốc')," +
+                "('010', N'Ẩm Thực Ven Biển Bãi Khem')," +
+                "('010', N'Quán Hải Sản Ngân Hà')";
+
             DatabaseHelper.executeQuery(query);
+
+            query = "insert into MUCCHI values ('00101', '001',  N'Đồ Ăn', 5000000)," +
+                "(00102, '001', N'Du Lịch', 4000000)," +
+                "(00103, '001', N'Thuê Nhà', 3000000)," +
+                "(00201, '002', N'Đồ Ăn', 5000000)," +
+                "(00202, '002', N'Du Lịch', 4000000)," +
+                "(00203, '002', N'Thuê Nhà', 3000000)," +
+                "(00301, '003', N'Đồ Ăn', 5000000)," +
+                "(00302, '003', N'Du Lịch', 4000000)," +
+                "(00303, '003', N'Thuê Nhà', 3000000)," +
+                "(00401, '004', N'Đồ Ăn', 5000000)," +
+                "(00402, '004', N'Du Lịch', 4000000)," +
+                "(00403, '005', N'Thuê Nhà', 3000000),"+
+                "(00601, '006', N'Đồ Ăn', 5000000)," +
+                "(00602, '006', N'Du Lịch', 4000000)," +
+                "(00603, '006', N'Thuê Nhà', 3000000)," +
+                "(00701, '007', N'Đồ Ăn', 5000000)," +
+                "(00702, '007', N'Du Lịch', 4000000)," +
+                "(00703, '007', N'Thuê Nhà', 3000000)," +
+                "(00801, '008', N'Đồ Ăn', 5000000)," +
+                "(00802, '008', N'Du Lịch', 4000000)," +
+                "(00803, '008', N'Thuê Nhà', 3000000)," +
+                "(00901, '009', N'Đồ Ăn', 5000000)," +
+                "(00902, '009', N'Du Lịch', 4000000)," +
+                "(00903, '009', N'Thuê Nhà', 3000000)," +
+                "(01001, '010', N'Đồ Ăn', 5000000)," +
+                "(01002, '010', N'Du Lịch', 4000000)," +
+                "(01003, '010', N'Thuê Nhà', 3000000)," +
+                "(00501, '005', N'Đồ Ăn', 5000000)," +
+                "(00502, '005', N'Du Lịch', 4000000)," +
+                "(00503, '005', N'Thuê Nhà', 3000000)";
+            DatabaseHelper.executeQuery(query);
+
+            query = "insert into CHUYENDI_THANHVIEN values('001', '00101', 5000000)," +
+               "('001', '00102', 1000000)," +
+               "('001', '00103', 1000000)," +
+               "('002', '00101', 10000000)," +
+               "('002', '00202', 2000000)," +
+               "('002', '00203', 2000000)," +
+               "('002', '00204', 2000000)," +
+               "('003', '00301', 5000000)," +
+               "('003', '00302', 5000000)," +
+               "('004', '00401', 4000000)," +
+               "('004', '00402', 4000000)," +
+               "('004', '00403', 2000000)," +
+               "('004', '00404', 2000000)," +
+               "('005', '00101', 5000000)," +
+               "('005', '00202', 1000000)," +
+               "('005', '00203', 1000000)," +
+               "('006', '00101', 10000000)," +
+               "('006', '00102', 2000000)," +
+               "('006', '00203', 2000000)," +
+               "('006', '00204', 2000000)," +
+               "('007', '00301', 10000000)," +
+               "('007', '00402', 2000000)," +
+               "('007', '00103', 2000000)," +
+               "('007', '00204', 2000000)," +
+               "('008', '00101', 10000000)," +
+               "('008', '00202', 2000000)," +
+               "('008', '00203', 2000000)," +
+               "('008', '00204', 2000000)," +
+               "('009', '00301', 10000000)," +
+               "('009', '00202', 2000000)," +
+               "('009', '00203', 2000000)," +
+               "('009', '00204', 2000000)," +
+               "('010', '00102', 2000000)," +
+               "('010', '00103', 2000000)," +
+               "('010', '00204', 2000000)";
+            DatabaseHelper.executeQuery(query);
+
         }
 
         private void createDatabaseIfNotExist()

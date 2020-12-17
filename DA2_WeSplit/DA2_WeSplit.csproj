@@ -205,5 +205,25 @@
     <Resource Include="Assets\Icon\location.png" />
     <Resource Include="Assets\Icon\person.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\13.jpg" />
+    <Resource Include="Assets\Images\14.jpg" />
+    <Resource Include="Assets\Images\15.jpg" />
+    <Resource Include="Assets\Images\16.jpg" />
+    <Resource Include="Assets\Images\17.jpg" />
+    <Resource Include="Assets\Images\18.jpg" />
+    <Resource Include="Assets\Images\19.jpg" />
+    <Resource Include="Assets\Images\20.png" />
+    <Resource Include="Assets\Images\21.jpg" />
+    <Resource Include="Assets\Images\22.jpg" />
+    <Resource Include="Assets\Images\23.jpg" />
+    <Resource Include="Assets\Images\24.jpg" />
+    <Resource Include="Assets\Images\25.jpg" />
+    <Resource Include="Assets\Images\26.png" />
+    <Resource Include="Assets\Images\27.jpg" />
+    <Resource Include="Assets\Images\28.jpg" />
+    <Resource Include="Assets\Images\29.jpg" />
+    <Resource Include="Assets\Images\30.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
