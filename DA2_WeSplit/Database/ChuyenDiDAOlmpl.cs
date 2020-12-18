@@ -152,5 +152,27 @@ namespace DA2_WeSplit.Database
             }
             return result;
         }
+
+        public void updateTrangThai(string maChuyenDi, int trangThai)
+        {
+
+            using (SqlConnection connection = new SqlConnection("Server=localhost; Database=QLChuyenDi; Trusted_Connection=True;"))
+            {
+                String query = "UPDATE dbo.CHUYENDI SET TRANGTHAI = @TrangThai WHERE MACHUYENDI = @MaChuyenDi;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MaChuyenDi", maChuyenDi);
+                    command.Parameters.AddWithValue("@TrangThai", trangThai);
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    if (result < 0)
+                    {
+                        MessageBox.Show("fail");
+                    }
+                }
+            }
+        }
     }
 }

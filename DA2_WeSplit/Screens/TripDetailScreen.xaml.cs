@@ -30,9 +30,11 @@ namespace DA2_WeSplit.Screens
     
     public sealed partial class TripDetailScreen : UserControl
     {
-        public delegate void DelegateType(int type);
+        public delegate void DelegateType(int type, string maChuyenDi);
         public event DelegateType ExitHandler;
+        public event DelegateType EditHandler;
         public int type;
+        public string maChuyenDi;
         
         TripDetailVM tripDetailVM;
         public TripDetailScreen(int type, string maChuyenDi)
@@ -43,6 +45,7 @@ namespace DA2_WeSplit.Screens
             InitializeComponent();
 
             this.type = type;
+            this.maChuyenDi = maChuyenDi;
             tripDetailVM = new TripDetailVM(maChuyenDi);
             this.DataContext = tripDetailVM;
             PlaceListView.ItemsSource = tripDetailVM.loTrinhList;
@@ -76,7 +79,15 @@ namespace DA2_WeSplit.Screens
         {
             if (ExitHandler != null)
             {
-                ExitHandler(this.type);
+                ExitHandler(this.type, this.maChuyenDi);
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (EditHandler != null)
+            {
+                EditHandler(this.type, this.maChuyenDi);
             }
         }
 
@@ -146,6 +157,11 @@ namespace DA2_WeSplit.Screens
             //    MessageBox.Show("Anh nay khong ton tai");
             //};
 
+        }
+
+        private void EditButton_Click(int type)
+        {
+            
         }
     }
 }

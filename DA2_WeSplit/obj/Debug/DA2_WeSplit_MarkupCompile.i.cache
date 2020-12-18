@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\App.xaml
-9791369898
+101131360132
 
-40-503004891
+41-1956046484
 1615486063
-Assets\icons.xaml;Card.xaml;Dashboard.xaml;Screens\NewTripScreen.xaml;Screens\SettingScreen.xaml;Screens\SplashScreen.xaml;Screens\SupportScreen.xaml;Screens\TripDetailScreen.xaml;Screens\TripScreen.xaml;
+Assets\icons.xaml;Card.xaml;Dashboard.xaml;Screens\EditTripScreen.xaml;Screens\NewTripScreen.xaml;Screens\SettingScreen.xaml;Screens\SplashScreen.xaml;Screens\SupportScreen.xaml;Screens\TripDetailScreen.xaml;Screens\TripScreen.xaml;
 
-False
+True
 

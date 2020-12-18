@@ -36,3 +36,5 @@ D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\NewTripScreen.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\SplashScreen.baml
 D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\DA2_WeSplit.csproj.CopyComplete
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\EditTripScreen.g.cs
+D:\4. Tài Liệu Học\2. Lập Trình Windows\5. Đồ Án\2. Đồ Án 2\DA2_WeSplit-main\DA2_WeSplit\obj\Debug\Screens\EditTripScreen.baml

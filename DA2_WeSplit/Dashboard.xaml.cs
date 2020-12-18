@@ -67,34 +67,25 @@ namespace DA2_WeSplit
 
 
 
-            query = "insert into HINHANHCHUYENDI values	('001', '1.png')," +
+            query = "insert into HINHANHCHUYENDI values" +
                 "('001', '2.png')," +
                 "('001', '3.png')," +
-                "('002', '4.jpg')," +
                 "('002', '5.jpg')," +
                 "('002', '6.jpg')," +
-                "('003', '7.jpg')," +
                 "('003', '8.jpg')," +
                 "('003', '9.jpg')," +
-                "('004', '10.jpg')," +
                 "('004', '11.jpg')," +
                 "('004', '12.jpg')," +
-                "('005', '13.jpg')," +
                 "('005', '14.jpg')," +
                 "('005', '15.jpg')," +
-                "('006', '16.jpg')," +
                 "('006', '17.jpg')," +
                 "('006', '18.jpg')," +
-                "('007', '19.jpg')," +
                 "('007', '20.png')," +
                 "('007', '21.jpg')," +
-                "('008', '22.jpg')," +
                 "('008', '23.jpg')," +
                 "('008', '24.jpg')," +
-                "('009', '25.jpg')," +
                 "('009', '26.png')," +
                 "('009', '27.jpg')," +
-                "('010', '28.jpg')," +
                 "('010', '29.jpg')," +
                 "('010', '30.jpg')";
            DatabaseHelper.executeQuery(query);
@@ -339,7 +330,7 @@ namespace DA2_WeSplit
             var newTrip = new NewTripScreen(type);
             MainScreen.Children.Clear();
             MainScreen.Children.Add(newTrip);
-            newTrip.ExitHandler += exitDetailTripScreenButton_Click;
+            newTrip.ExitHandler += exitDetailTripScreenButton1_Click;
         }
 
         private void RowDefinition_MouseDown(object sender, MouseButtonEventArgs e)
@@ -383,12 +374,28 @@ namespace DA2_WeSplit
             var tripDetailScreen = new TripDetailScreen(type, maChuyenDi);
             MainScreen.Children.Add(tripDetailScreen);
             tripDetailScreen.ExitHandler += exitDetailTripScreenButton_Click;
+            tripDetailScreen.EditHandler += editDetailTripScreenButton_Click;
         }
 
-        private void exitDetailTripScreenButton_Click(int type)
+        private void exitDetailTripScreenButton1_Click(int type)
         {
             MainScreen.Children.Clear();
             UpdateTripScreen(type);
+        }
+
+        private void exitDetailTripScreenButton_Click(int type, string maChuyenDi)
+        {
+            MainScreen.Children.Clear();
+            UpdateTripScreen(type);
+        }
+
+
+        private void editDetailTripScreenButton_Click(int type, string maChuyenDi)
+        {
+            var editTripScreen = new EditTripScreen(maChuyenDi);
+            MainScreen.Children.Clear();
+            MainScreen.Children.Add(editTripScreen);
+            editTripScreen.ExitHandlerEdit += LearnMoreButtonClick;
         }
 
         private void UpdateTripScreen(int type)//0 la All, 1 la Current, 2 la Passed

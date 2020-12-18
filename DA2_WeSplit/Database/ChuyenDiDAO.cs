@@ -15,6 +15,8 @@ namespace DA2_WeSplit.Database
         void deleteChuyenDi(string tenChuyenDi);
         void addChuyenDi(ChuyenDi chuyenDi);
 
+        void updateTrangThai(string maChuyenDi, int trangThai);
+
         List<ChuyenDi> GetCurrentTrip();
         List<ChuyenDi> GetPassedTrip();
     }
